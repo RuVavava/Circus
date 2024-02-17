@@ -35,11 +35,14 @@ namespace Circus.Pages.Personal
         {
             if (exerciseLV.SelectedItem is Exercise exercise)
             {
+                Window1 taskWindow = new Window1(exercise);
+                taskWindow.Show();
 
-                var lb = sender as ListView;
+
+                //var lb = sender as ListView;
                 //nameDescriptionTB.Text = (lb.SelectedIndex + 1).ToString();
                 //var vib = (lb.SelectedIndex);
-                //nameDescriptionTB.Text = DBConnection.circus.Exercise.Where(i => i.ID_Exercise == vib).ToString();
+                //nameDescriptionTB.Text = DBConnection.circus.Exercise.Where(i => i.ID_Exercise == exercise.ID_Exercise).ToString();
 
             }
         }
