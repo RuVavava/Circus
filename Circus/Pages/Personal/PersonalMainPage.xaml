@@ -1,0 +1,59 @@
+﻿<Page x:Class="Circus.Pages.Personal.PersonalMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Circus.Pages.Personal"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontFamily="Courier New"
+      Title="PersonalMainPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Задачи"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"     
+            VerticalAlignment="Center" HorizontalAlignment="Center"
+            FontSize="40"/>
+
+        <ListView x:Name="exerciseLV"
+            Grid.Row="1" Grid.RowSpan="3"
+            Grid.Column="1" Grid.ColumnSpan="5"
+            MaxWidth="1800" Height="450"
+            ItemsSource="{Binding exercise}" SelectionChanged="exerciseLV_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="520"/>
+                        <GridViewColumn Header="Статус выполнения" DisplayMemberBinding="{Binding Status.Name_Status}" Width="360"/>
+                        <GridViewColumn Header="Комментарий" DisplayMemberBinding="{Binding Comment}" Width="470"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock x:Name="nameDescriptionTB"
+            Grid.Row="6" Grid.RowSpan="1"
+            Grid.Column="1" Grid.ColumnSpan="1"
+            Width="200" Height="200" Text="{Binding ex.Description}"/>
+    </Grid>
+</Page>

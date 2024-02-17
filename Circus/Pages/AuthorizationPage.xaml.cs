@@ -39,14 +39,14 @@ namespace Circus.Pages
                 var curret_worker = workers.FirstOrDefault(i => i.Login == login && i.Password == password);
                 DBConnection.loginedWorker = curret_worker;
 
-                if (curret_worker != null && curret_worker.ID_Role == 1)
+                if (curret_worker != null && curret_worker.Role.Name_Role == "Администратор")
                     MessageBox.Show("АДМИН!");
-                else if (curret_worker != null && curret_worker.ID_Role == 2)
+                else if (curret_worker != null && curret_worker.Role.Name_Role == "Артист")
                     MessageBox.Show("АКТЕР!");
-                else if (curret_worker != null && curret_worker.ID_Role == 3)
+                else if (curret_worker != null && curret_worker.Role.Name_Role == "Дрессировщик")
                     MessageBox.Show("ДРЕССИРОВЩИК!");
-                else if (curret_worker != null && curret_worker.ID_Role == 4)
-                    MessageBox.Show("ПЕРСОНАЛ!");
+                else if (curret_worker != null && curret_worker.Role.Name_Role == "Обслуживающий персонал")
+                    NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
                 else
                     MessageBox.Show("Введенные данные некорректны!");
             }
