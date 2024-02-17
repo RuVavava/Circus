@@ -29,11 +29,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        
+        <!--Изображение логотипа-->
         <Image Source="/IMG/logo.png"
                Grid.Column="0" Grid.ColumnSpan="4"
                Grid.Row="0" Grid.RowSpan="7"/>
-        <!--Изображение логотипа-->
+
 
         <!-->НАДПИСЬ ВХОД В ЛИЧНЫЙ КАБИНЕТ<-->
         <TextBlock Text="ВХОД В ЛИЧНЫЙ КАБИНЕТ"
