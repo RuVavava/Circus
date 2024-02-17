@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CircusModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID_Admin" />
+          </Key>
+          <Property Name="ID_Admin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_Application" />
+          </Key>
+          <Property Name="ID_Application" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Artiat" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="ID_Cell" />
+          </Key>
+          <Property Name="ID_Cell" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Animal" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age_Animal" Type="int" />
+          <Property Name="ID_Gender" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Food" Type="nvarchar(max)" />
+          <Property Name="Care" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID_Event" />
+          </Key>
+          <Property Name="ID_Event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Event" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="ID_Exercise" />
+          </Key>
+          <Property Name="ID_Exercise" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Worker" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ID_Status" Type="int" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID_Gender" />
+          </Key>
+          <Property Name="ID_Gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Gender" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_Role" />
+          </Key>
+          <Property Name="ID_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Schedule_Artist">
+          <Key>
+            <PropertyRef Name="ID_ScheduleArtist" />
+          </Key>
+          <Property Name="ID_ScheduleArtist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Artist" Type="int" />
+          <Property Name="ID_Event" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Hour" Type="int" />
+        </EntityType>
+        <EntityType Name="Schedule_Trainer">
+          <Key>
+            <PropertyRef Name="ID_Schedule_Trainer" />
+          </Key>
+          <Property Name="ID_Schedule_Trainer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Trainer" Type="int" />
+          <Property Name="ID_Cell" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Hour" Type="int" />
+          <Property Name="ID_Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="BH" Type="date" />
+          <Property Name="ID_Gender" Type="int" />
+          <Property Name="ID_Role" Type="int" />
+          <Property Name="Login" Type="int" />
+          <Property Name="Password" Type="int" />
+        </EntityType>
+        <Association Name="FK_Admin_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="ID_Admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Artiat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cell_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Cell" Type="Self.Cell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_Gender" />
+            </Principal>
+            <Dependent Role="Cell">
+              <PropertyRef Name="ID_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exercise_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="ID_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exercise_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Artist_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Schedule_Artist" Type="Self.Schedule_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID_Event" />
+            </Principal>
+            <Dependent Role="Schedule_Artist">
+              <PropertyRef Name="ID_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Artist_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Schedule_Artist" Type="Self.Schedule_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Schedule_Artist">
+              <PropertyRef Name="ID_Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Cell">
+          <End Role="Cell" Type="Self.Cell" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell">
+              <PropertyRef Name="ID_Cell" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Cell" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Trainer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_Gender" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ID_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CircusModelContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cell" EntityType="Self.Cell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule_Artist" EntityType="Self.Schedule_Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule_Trainer" EntityType="Self.Schedule_Trainer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Admin_Workers" Association="Self.FK_Admin_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Workers" Association="Self.FK_Application_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cell_Gender" Association="Self.FK_Cell_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Cell" EntitySet="Cell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exercise_Status" Association="Self.FK_Exercise_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exercise_Workers" Association="Self.FK_Exercise_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Artist_Event" Association="Self.FK_Schedule_Artist_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Artist_Workers" Association="Self.FK_Schedule_Artist_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Cell" Association="Self.FK_Schedule_Trainer_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Status" Association="Self.FK_Schedule_Trainer_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Workers" Association="Self.FK_Schedule_Trainer_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Gender" Association="Self.FK_Workers_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Role" Association="Self.FK_Workers_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CircusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID_Admin" />
+          </Key>
+          <Property Name="ID_Admin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Admin_Workers" FromRole="Admin" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_Application" />
+          </Key>
+          <Property Name="ID_Application" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Artiat" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Application_Workers" FromRole="Application" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="ID_Cell" />
+          </Key>
+          <Property Name="ID_Cell" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Animal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age_Animal" Type="Int32" />
+          <Property Name="ID_Gender" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Food" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Care" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Cell_Gender" FromRole="Cell" ToRole="Gender" />
+          <NavigationProperty Name="Schedule_Trainer" Relationship="Self.FK_Schedule_Trainer_Cell" FromRole="Cell" ToRole="Schedule_Trainer" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID_Event" />
+          </Key>
+          <Property Name="ID_Event" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Event" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Schedule_Artist" Relationship="Self.FK_Schedule_Artist_Event" FromRole="Event" ToRole="Schedule_Artist" />
+        </EntityType>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="ID_Exercise" />
+          </Key>
+          <Property Name="ID_Exercise" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Worker" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Status" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Exercise_Status" FromRole="Exercise" ToRole="Status" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Exercise_Workers" FromRole="Exercise" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="ID_Gender" />
+          </Key>
+          <Property Name="ID_Gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cell" Relationship="Self.FK_Cell_Gender" FromRole="Gender" ToRole="Cell" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Gender" FromRole="Gender" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_Role" />
+          </Key>
+          <Property Name="ID_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Role" FromRole="Role" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Schedule_Artist">
+          <Key>
+            <PropertyRef Name="ID_ScheduleArtist" />
+          </Key>
+          <Property Name="ID_ScheduleArtist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Artist" Type="Int32" />
+          <Property Name="ID_Event" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Hour" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Schedule_Artist_Event" FromRole="Schedule_Artist" ToRole="Event" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Schedule_Artist_Workers" FromRole="Schedule_Artist" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Schedule_Trainer">
+          <Key>
+            <PropertyRef Name="ID_Schedule_Trainer" />
+          </Key>
+          <Property Name="ID_Schedule_Trainer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Trainer" Type="Int32" />
+          <Property Name="ID_Cell" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Hour" Type="Int32" />
+          <Property Name="ID_Status" Type="Int32" />
+          <NavigationProperty Name="Cell" Relationship="Self.FK_Schedule_Trainer_Cell" FromRole="Schedule_Trainer" ToRole="Cell" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Schedule_Trainer_Status" FromRole="Schedule_Trainer" ToRole="Status" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Schedule_Trainer_Workers" FromRole="Schedule_Trainer" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID_Status" />
+          </Key>
+          <Property Name="ID_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exercise" Relationship="Self.FK_Exercise_Status" FromRole="Status" ToRole="Exercise" />
+          <NavigationProperty Name="Schedule_Trainer" Relationship="Self.FK_Schedule_Trainer_Status" FromRole="Status" ToRole="Schedule_Trainer" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BH" Type="DateTime" Precision="0" />
+          <Property Name="ID_Gender" Type="Int32" />
+          <Property Name="ID_Role" Type="Int32" />
+          <Property Name="Login" Type="Int32" />
+          <Property Name="Password" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_Admin_Workers" FromRole="Workers" ToRole="Admin" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Workers" FromRole="Workers" ToRole="Application" />
+          <NavigationProperty Name="Exercise" Relationship="Self.FK_Exercise_Workers" FromRole="Workers" ToRole="Exercise" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Workers_Gender" FromRole="Workers" ToRole="Gender" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Workers_Role" FromRole="Workers" ToRole="Role" />
+          <NavigationProperty Name="Schedule_Artist" Relationship="Self.FK_Schedule_Artist_Workers" FromRole="Workers" ToRole="Schedule_Artist" />
+          <NavigationProperty Name="Schedule_Trainer" Relationship="Self.FK_Schedule_Trainer_Workers" FromRole="Workers" ToRole="Schedule_Trainer" />
+        </EntityType>
+        <Association Name="FK_Admin_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="ID_Admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Artiat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cell_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Cell" Type="Self.Cell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_Gender" />
+            </Principal>
+            <Dependent Role="Cell">
+              <PropertyRef Name="ID_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Cell">
+          <End Role="Cell" Type="Self.Cell" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell">
+              <PropertyRef Name="ID_Cell" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Cell" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Artist_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Schedule_Artist" Type="Self.Schedule_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID_Event" />
+            </Principal>
+            <Dependent Role="Schedule_Artist">
+              <PropertyRef Name="ID_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exercise_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="ID_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exercise_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID_Gender" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ID_Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Artist_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Schedule_Artist" Type="Self.Schedule_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Schedule_Artist">
+              <PropertyRef Name="ID_Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_Status" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Trainer_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="ID_Worker" />
+            </Principal>
+            <Dependent Role="Schedule_Trainer">
+              <PropertyRef Name="ID_Trainer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CircusEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Cell" EntityType="Self.Cell" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Exercise" EntityType="Self.Exercise" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Schedule_Artist" EntityType="Self.Schedule_Artist" />
+          <EntitySet Name="Schedule_Trainer" EntityType="Self.Schedule_Trainer" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+          <AssociationSet Name="FK_Admin_Workers" Association="Self.FK_Admin_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Workers" Association="Self.FK_Application_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cell_Gender" Association="Self.FK_Cell_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Cell" EntitySet="Cell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Cell" Association="Self.FK_Schedule_Trainer_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Artist_Event" Association="Self.FK_Schedule_Artist_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exercise_Status" Association="Self.FK_Exercise_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exercise_Workers" Association="Self.FK_Exercise_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Gender" Association="Self.FK_Workers_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Role" Association="Self.FK_Workers_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Artist_Workers" Association="Self.FK_Schedule_Artist_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Status" Association="Self.FK_Schedule_Trainer_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Trainer_Workers" Association="Self.FK_Schedule_Trainer_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities1">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="CircusModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="CircusModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ID_Application" ColumnName="ID_Application" />
+                <ScalarProperty Name="ID_Artiat" ColumnName="ID_Artiat" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cell">
+            <EntityTypeMapping TypeName="CircusModel.Cell">
+              <MappingFragment StoreEntitySet="Cell">
+                <ScalarProperty Name="ID_Cell" ColumnName="ID_Cell" />
+                <ScalarProperty Name="Name_Animal" ColumnName="Name_Animal" />
+                <ScalarProperty Name="Age_Animal" ColumnName="Age_Animal" />
+                <ScalarProperty Name="ID_Gender" ColumnName="ID_Gender" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Food" ColumnName="Food" />
+                <ScalarProperty Name="Care" ColumnName="Care" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="CircusModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="ID_Event" ColumnName="ID_Event" />
+                <ScalarProperty Name="Name_Event" ColumnName="Name_Event" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exercise">
+            <EntityTypeMapping TypeName="CircusModel.Exercise">
+              <MappingFragment StoreEntitySet="Exercise">
+                <ScalarProperty Name="ID_Exercise" ColumnName="ID_Exercise" />
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CircusModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="ID_Gender" ColumnName="ID_Gender" />
+                <ScalarProperty Name="Name_Gender" ColumnName="Name_Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="CircusModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+                <ScalarProperty Name="Name_Role" ColumnName="Name_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule_Artist">
+            <EntityTypeMapping TypeName="CircusModel.Schedule_Artist">
+              <MappingFragment StoreEntitySet="Schedule_Artist">
+                <ScalarProperty Name="ID_ScheduleArtist" ColumnName="ID_ScheduleArtist" />
+                <ScalarProperty Name="ID_Artist" ColumnName="ID_Artist" />
+                <ScalarProperty Name="ID_Event" ColumnName="ID_Event" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule_Trainer">
+            <EntityTypeMapping TypeName="CircusModel.Schedule_Trainer">
+              <MappingFragment StoreEntitySet="Schedule_Trainer">
+                <ScalarProperty Name="ID_Schedule_Trainer" ColumnName="ID_Schedule_Trainer" />
+                <ScalarProperty Name="ID_Trainer" ColumnName="ID_Trainer" />
+                <ScalarProperty Name="ID_Cell" ColumnName="ID_Cell" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="CircusModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+                <ScalarProperty Name="Name_Status" ColumnName="Name_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CircusModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="CircusModel.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="BH" ColumnName="BH" />
+                <ScalarProperty Name="ID_Gender" ColumnName="ID_Gender" />
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
