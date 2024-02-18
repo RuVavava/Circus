@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace Circus.Pages.Personal
     {
         public static List<Exercise> exercise {  get; set; }
         public static Exercise exx { get; set; }
+        Exercise contexexx;
         public PersonalMainPage()
         {
             InitializeComponent();
@@ -34,20 +36,37 @@ namespace Circus.Pages.Personal
         private void exerciseLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (exerciseLV.SelectedItem is Exercise exercise)
-            {
-                //Window1 taskWindow = new Window1(exercise);
-                //taskWindow.Show();
-
+            {            
                 exx = exercise;
                 this.DataContext = this;
                 NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
 
-                //var lb = sender as ListView;
-                //nameDescriptionTB.Text = (lb.SelectedIndex + 1).ToString();
-                //var vib = (lb.SelectedIndex);
-                //nameDescriptionTB.Text = DBConnection.circus.Exercise.Where(i => i.ID_Exercise == exercise.ID_Exercise).ToString();
-
             }
+        }
+
+        private void saveStatusBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var error = string.Empty;
+            var validationContext = new ValidationContext(contexexx);
+            var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+
+            if (Validator.TryValidateObject(contexexx, validationContext, results, true))
+            {
+                foreach (var result in results)
+                {
+                    error += $"{result.ErrorMessage}\n";
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(error))
+            {
+                MessageBox.Show(error);
+                return;
+            }
+
+            if (contexexx.ID_Exercise == 0)
+            DBConnection.circus.Exercise.Add(contexexx);
+            DBConnection.circus.SaveChanges();
+            NavigationService.Navigate(new Pages.AuthorizationPage());
         }
     }
 }
