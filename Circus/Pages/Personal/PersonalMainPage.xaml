@@ -30,30 +30,47 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Задачи"
-            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Column="1" Grid.ColumnSpan="2"
             Grid.Row="0"     
             VerticalAlignment="Center" HorizontalAlignment="Center"
             FontSize="40"/>
 
         <ListView x:Name="exerciseLV"
-            Grid.Row="1" Grid.RowSpan="3"
-            Grid.Column="1" Grid.ColumnSpan="5"
-            MaxWidth="1800" Height="450"
-            ItemsSource="{Binding exercise}" SelectionChanged="exerciseLV_SelectionChanged">
+            Grid.Row="1" Grid.RowSpan="6"
+            Grid.Column="0" Grid.ColumnSpan="4"
+            Width="1000" Height="800" VerticalAlignment="Top"
+            ItemsSource="{Binding exercise}"  SelectionChanged="exerciseLV_SelectionChanged">
             <ListView.View>
-                <GridView>
+                <GridView >
                     <GridView.Columns>
-                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="520"/>
-                        <GridViewColumn Header="Статус выполнения" DisplayMemberBinding="{Binding Status.Name_Status}" Width="360"/>
-                        <GridViewColumn Header="Комментарий" DisplayMemberBinding="{Binding Comment}" Width="470"/>
+                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="250"/>
+                        <GridViewColumn Header="Статус выполнения" DisplayMemberBinding="{Binding Status.Name_Status}" Width="200"/>
+                        <GridViewColumn Header="Коментарий" Width="500">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Comment}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
+                
             </ListView.View>
         </ListView>
 
-        <TextBlock x:Name="nameDescriptionTB"
-            Grid.Row="6" Grid.RowSpan="1"
-            Grid.Column="1" Grid.ColumnSpan="1"
-            Width="200" Height="200" Text="{Binding ex.Description}"/>
+        <TextBox x:Name="nameDescriptionTB"
+            Grid.Row="1" Grid.RowSpan="1"
+            Grid.Column="4" Grid.ColumnSpan="3"
+            Width="200" Height="100" Text="{Binding exx.Description}"/>
+
+        <TextBox x:Name="nameStatusTB"
+            Grid.Row="3" Grid.RowSpan="1"
+            Grid.Column="4" Grid.ColumnSpan="3"
+            Width="200" Height="100" Text="{Binding exx.Status.Name_Status}"/>
+
+        <TextBox x:Name="nameCommentTB"
+            Grid.Row="5" Grid.RowSpan="1"
+            Grid.Column="4" Grid.ColumnSpan="3"
+            Width="200" Height="100" Text="{Binding exx.Comment}"/>
     </Grid>
 </Page>

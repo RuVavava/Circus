@@ -22,7 +22,7 @@ namespace Circus.Pages.Personal
     public partial class PersonalMainPage : Page
     {
         public static List<Exercise> exercise {  get; set; }
-        public static Exercise ex { get; set; }
+        public static Exercise exx { get; set; }
         public PersonalMainPage()
         {
             InitializeComponent();
@@ -35,9 +35,12 @@ namespace Circus.Pages.Personal
         {
             if (exerciseLV.SelectedItem is Exercise exercise)
             {
-                Window1 taskWindow = new Window1(exercise);
-                taskWindow.Show();
+                //Window1 taskWindow = new Window1(exercise);
+                //taskWindow.Show();
 
+                exx = exercise;
+                this.DataContext = this;
+                NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
 
                 //var lb = sender as ListView;
                 //nameDescriptionTB.Text = (lb.SelectedIndex + 1).ToString();
