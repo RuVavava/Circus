@@ -46,27 +46,41 @@ namespace Circus.Pages.Personal
 
         private void saveStatusBTN_Click(object sender, RoutedEventArgs e)
         {
-            var error = string.Empty;
-            var validationContext = new ValidationContext(contexexx);
-            var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
 
-            if (Validator.TryValidateObject(contexexx, validationContext, results, true))
-            {
-                foreach (var result in results)
-                {
-                    error += $"{result.ErrorMessage}\n";
-                }
-            }
-            if (!string.IsNullOrWhiteSpace(error))
-            {
-                MessageBox.Show(error);
-                return;
-            }
+            Exercise exercise = exx;
 
-            if (contexexx.ID_Exercise == 0)
-            DBConnection.circus.Exercise.Add(contexexx);
+            if (nameStatusCB.SelectedIndex == 0)
+                exx.ID_Status = 1;
+            else if (nameStatusCB.SelectedIndex == 1)
+                exx.ID_Status = 2;
+            else if (nameStatusCB.SelectedIndex == 2)
+                exx.ID_Status = 3;
+            exx.Comment = nameCommentTB.Text;
             DBConnection.circus.SaveChanges();
-            NavigationService.Navigate(new Pages.AuthorizationPage());
+            NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
+
+
+            //var error = string.Empty;
+            //var validationContext = new ValidationContext(contexexx);
+            //var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+
+            //if (Validator.TryValidateObject(contexexx, validationContext, results, true))
+            //{
+            //    foreach (var result in results)
+            //    {
+            //        error += $"{result.ErrorMessage}\n";
+            //    }
+            //}
+            //if (!string.IsNullOrWhiteSpace(error))
+            //{
+            //    MessageBox.Show(error);
+            //    return;
+            //}
+
+            //if (contexexx.ID_Exercise == 0)
+            //DBConnection.circus.Exercise.Add(contexexx);
+            //DBConnection.circus.SaveChanges();
+            //NavigationService.Navigate(new Pages.AuthorizationPage());
         }
     }
 }
