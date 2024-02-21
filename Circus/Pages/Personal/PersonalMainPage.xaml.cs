@@ -77,5 +77,10 @@ namespace Circus.Pages.Personal
         {
             MessageBox.Show("ОК");
         }
+
+        private void vihodBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.AuthorizationPage());
+        }
     }
 }
