@@ -200,6 +200,8 @@
       <DependentUpon>Model2.edmx</DependentUpon>
       <LastGenOutput>Model2.cs</LastGenOutput>
     </Content>
+    <Resource Include="IMG\icon_profile.png" />
+    <Resource Include="IMG\icon_v.png" />
     <Resource Include="IMG\logo.png" />
   </ItemGroup>
   <ItemGroup>

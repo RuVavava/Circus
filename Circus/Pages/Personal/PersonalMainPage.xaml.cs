@@ -28,8 +28,13 @@ namespace Circus.Pages.Personal
         public PersonalMainPage()
         {
             InitializeComponent();
-            exercise = new List<Exercise>(DBConnection.circus.Exercise.Where(i => i.ID_Worker == DBConnection.loginedWorker.ID_Worker).ToList());
-            exerciseLV.ItemsSource = exercise;
+            string surname = DBConnection.loginedWorker.Surname;
+            string name = DBConnection.loginedWorker.Name;
+            string patronumic = DBConnection.loginedWorker.Patronymic;
+            string fio = $"{surname} {name} {patronumic} ";
+            name1TB.Text = fio;
+
+            Refresh();
             this.DataContext = this;
         }
 
@@ -38,6 +43,7 @@ namespace Circus.Pages.Personal
             if (exerciseLV.SelectedItem is Exercise exercise)
             {            
                 exx = exercise;
+                Refresh();
                 this.DataContext = this;
                 NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
 
@@ -57,30 +63,19 @@ namespace Circus.Pages.Personal
                 exx.ID_Status = 3;
             exx.Comment = nameCommentTB.Text;
             DBConnection.circus.SaveChanges();
-            NavigationService.Navigate(new Pages.Personal.PersonalMainPage());
+            Refresh();
 
+        }
 
-            //var error = string.Empty;
-            //var validationContext = new ValidationContext(contexexx);
-            //var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+        public void Refresh()
+        {
+            exercise = new List<Exercise>(DBConnection.circus.Exercise.Where(i => i.ID_Worker == DBConnection.loginedWorker.ID_Worker).ToList());
+            exerciseLV.ItemsSource = exercise;
+        }
 
-            //if (Validator.TryValidateObject(contexexx, validationContext, results, true))
-            //{
-            //    foreach (var result in results)
-            //    {
-            //        error += $"{result.ErrorMessage}\n";
-            //    }
-            //}
-            //if (!string.IsNullOrWhiteSpace(error))
-            //{
-            //    MessageBox.Show(error);
-            //    return;
-            //}
-
-            //if (contexexx.ID_Exercise == 0)
-            //DBConnection.circus.Exercise.Add(contexexx);
-            //DBConnection.circus.SaveChanges();
-            //NavigationService.Navigate(new Pages.AuthorizationPage());
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ОК");
         }
     }
 }
