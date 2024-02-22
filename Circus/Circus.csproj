@@ -199,7 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="iconC.ico" />
-    <Resource Include="icon.ico" />
     <Resource Include="IMG\icon_profile.png" />
     <Resource Include="IMG\icon_v.png" />
     <Resource Include="IMG\logo.png" />

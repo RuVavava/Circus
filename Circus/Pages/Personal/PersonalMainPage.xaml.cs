@@ -83,5 +83,10 @@ namespace Circus.Pages.Personal
         {
             NavigationService.Navigate(new Pages.AuthorizationPage());
         }
+
+        private void profileBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.ProfilePage());
+        }
     }
 }

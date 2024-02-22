@@ -28,7 +28,96 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <!-->НАДПИСЬ ВХОД В ЛИЧНЫЙ КАБИНЕТ<-->
+        <TextBlock Text="ПРОФИЛЬ"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            FontSize="60" FontWeight="Medium"/>
+
+        <TextBlock x:Name="nameProfileTB"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0" Grid.RowSpan="2"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Фамилия:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="1"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="surnameTB"
+            Grid.Column="2" Grid.ColumnSpan="2"
+            Grid.Row="1"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Имя:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="nameTB"
+            Grid.Column="2" Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
         
-        
+        <TextBlock Text="Отчество:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="patrnameTB"
+            Grid.Column="2" Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Дата Рождения:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="4"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="bhTB"
+            Grid.Column="2" Grid.ColumnSpan="2"
+            Grid.Row="4"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Должность:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="5"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="roleTB"
+            Grid.Column="2" Grid.ColumnSpan="2"
+            Grid.Row="5"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Логин:"
+            Grid.Column="0" Grid.ColumnSpan="1"
+            Grid.Row="6"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="loginTB"
+            Grid.Column="1" Grid.ColumnSpan="1"
+            Grid.Row="6"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBlock Text="Пароль:"
+            Grid.Column="2" Grid.ColumnSpan="1"
+            Grid.Row="6"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBlock x:Name="passwordTB"
+            Grid.Column="3" Grid.ColumnSpan="1"
+            Grid.Row="6"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
     </Grid>
 </Page>

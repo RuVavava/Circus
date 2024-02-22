@@ -63,7 +63,7 @@
         <Button x:Name="profileBTN" Background="{x:Null}"
                 Grid.Column="3" Grid.ColumnSpan="1"
                 Grid.Row="0" Grid.RowSpan="1"
-                Width="100" Height="100" HorizontalAlignment="Left" BorderThickness="0">Профиль</Button>
+                Width="100" Height="100" HorizontalAlignment="Left" BorderThickness="0" Click="profileBTN_Click">Профиль</Button>
 
         <Button x:Name="vihodBTN" Background="{x:Null}"
                 Grid.Column="3" Grid.ColumnSpan="1"

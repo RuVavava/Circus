@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Circus.DB;
 
 namespace Circus.Pages
 {
@@ -23,6 +24,22 @@ namespace Circus.Pages
         public ProfilePage()
         {
             InitializeComponent();
+            string surname = DBConnection.loginedWorker.Surname;
+            string name = DBConnection.loginedWorker.Name;
+            string patronumic = DBConnection.loginedWorker.Patronymic;
+            string fio = $"{surname} {name} {patronumic}";
+            nameProfileTB.Text = fio;
+
+
+            surnameTB.Text = DBConnection.loginedWorker.Surname;
+            nameTB.Text = DBConnection.loginedWorker.Name;
+            patrnameTB.Text = DBConnection.loginedWorker.Patronymic;
+            bhTB.Text = Convert.ToString(DBConnection.loginedWorker.BH);
+            roleTB.Text = DBConnection.loginedWorker.Role.Name_Role;
+            loginTB.Text = Convert.ToString(DBConnection.loginedWorker.Login);
+            passwordTB.Text = Convert.ToString(DBConnection.loginedWorker.Password);
+
+            this.DataContext = this;
         }
     }
 }
