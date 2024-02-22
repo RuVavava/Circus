@@ -13,10 +13,10 @@ namespace Circus.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CircusEntities1 : DbContext
+    public partial class CircusEntities : DbContext
     {
-        public CircusEntities1()
-            : base("name=CircusEntities1")
+        public CircusEntities()
+            : base("name=CircusEntities")
         {
         }
     
@@ -34,7 +34,6 @@ namespace Circus.DB
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Schedule_Artist> Schedule_Artist { get; set; }
         public virtual DbSet<Schedule_Trainer> Schedule_Trainer { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
     }

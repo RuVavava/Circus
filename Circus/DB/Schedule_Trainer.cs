@@ -19,10 +19,9 @@ namespace Circus.DB
         public Nullable<int> ID_Cell { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> Hour { get; set; }
-        public Nullable<int> ID_Status { get; set; }
+        public Nullable<int> Name_Status { get; set; }
     
         public virtual Cell Cell { get; set; }
-        public virtual Status Status { get; set; }
         public virtual Workers Workers { get; set; }
     }
 }

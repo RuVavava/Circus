@@ -17,6 +17,7 @@
           </Key>
           <Property Name="ID_Application" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Artiat" Type="int" />
+          <Property Name="Date_Application" Type="date" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Cell">
@@ -45,7 +46,7 @@
           <Property Name="ID_Exercise" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Worker" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="ID_Status" Type="int" />
+          <Property Name="Name_Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Gender">
@@ -81,14 +82,7 @@
           <Property Name="ID_Cell" Type="int" />
           <Property Name="Date" Type="datetime" />
           <Property Name="Hour" Type="int" />
-          <Property Name="ID_Status" Type="int" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="ID_Status" />
-          </Key>
-          <Property Name="ID_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Status" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -150,18 +144,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Exercise_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID_Status" />
-            </Principal>
-            <Dependent Role="Exercise">
-              <PropertyRef Name="ID_Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Exercise_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
@@ -207,18 +189,6 @@
             </Principal>
             <Dependent Role="Schedule_Trainer">
               <PropertyRef Name="ID_Cell" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Schedule_Trainer_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID_Status" />
-            </Principal>
-            <Dependent Role="Schedule_Trainer">
-              <PropertyRef Name="ID_Status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -268,7 +238,6 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schedule_Artist" EntityType="Self.Schedule_Artist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schedule_Trainer" EntityType="Self.Schedule_Trainer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Admin_Workers" Association="Self.FK_Admin_Workers">
@@ -282,10 +251,6 @@
           <AssociationSet Name="FK_Cell_Gender" Association="Self.FK_Cell_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Cell" EntitySet="Cell" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exercise_Status" Association="Self.FK_Exercise_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Exercise" EntitySet="Exercise" />
           </AssociationSet>
           <AssociationSet Name="FK_Exercise_Workers" Association="Self.FK_Exercise_Workers">
             <End Role="Workers" EntitySet="Workers" />
@@ -301,10 +266,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Trainer_Cell" Association="Self.FK_Schedule_Trainer_Cell">
             <End Role="Cell" EntitySet="Cell" />
-            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Trainer_Status" Association="Self.FK_Schedule_Trainer_Status">
-            <End Role="Status" EntitySet="Status" />
             <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Trainer_Workers" Association="Self.FK_Schedule_Trainer_Workers">
@@ -338,6 +299,7 @@
           </Key>
           <Property Name="ID_Application" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Artiat" Type="Int32" />
+          <Property Name="Date_Application" Type="DateTime" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Application_Workers" FromRole="Application" ToRole="Workers" />
         </EntityType>
@@ -370,9 +332,8 @@
           <Property Name="ID_Exercise" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Worker" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Status" Type="Int32" />
+          <Property Name="Name_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_Exercise_Status" FromRole="Exercise" ToRole="Status" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Exercise_Workers" FromRole="Exercise" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Gender">
@@ -413,19 +374,9 @@
           <Property Name="ID_Cell" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Hour" Type="Int32" />
-          <Property Name="ID_Status" Type="Int32" />
+          <Property Name="Name_Status" Type="Int32" />
           <NavigationProperty Name="Cell" Relationship="Self.FK_Schedule_Trainer_Cell" FromRole="Schedule_Trainer" ToRole="Cell" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_Schedule_Trainer_Status" FromRole="Schedule_Trainer" ToRole="Status" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Schedule_Trainer_Workers" FromRole="Schedule_Trainer" ToRole="Workers" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="ID_Status" />
-          </Key>
-          <Property Name="ID_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Exercise" Relationship="Self.FK_Exercise_Status" FromRole="Status" ToRole="Exercise" />
-          <NavigationProperty Name="Schedule_Trainer" Relationship="Self.FK_Schedule_Trainer_Status" FromRole="Status" ToRole="Schedule_Trainer" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -518,18 +469,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Exercise_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID_Status" />
-            </Principal>
-            <Dependent Role="Exercise">
-              <PropertyRef Name="ID_Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Exercise_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
@@ -578,18 +517,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Schedule_Trainer_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID_Status" />
-            </Principal>
-            <Dependent Role="Schedule_Trainer">
-              <PropertyRef Name="ID_Status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Schedule_Trainer_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Schedule_Trainer" Type="Self.Schedule_Trainer" Multiplicity="*" />
@@ -602,7 +529,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CircusEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CircusEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Application" EntityType="Self.Application" />
           <EntitySet Name="Cell" EntityType="Self.Cell" />
@@ -612,7 +539,6 @@
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Schedule_Artist" EntityType="Self.Schedule_Artist" />
           <EntitySet Name="Schedule_Trainer" EntityType="Self.Schedule_Trainer" />
-          <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Workers" EntityType="Self.Workers" />
           <AssociationSet Name="FK_Admin_Workers" Association="Self.FK_Admin_Workers">
@@ -635,10 +561,6 @@
             <End Role="Event" EntitySet="Event" />
             <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
           </AssociationSet>
-          <AssociationSet Name="FK_Exercise_Status" Association="Self.FK_Exercise_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Exercise" EntitySet="Exercise" />
-          </AssociationSet>
           <AssociationSet Name="FK_Exercise_Workers" Association="Self.FK_Exercise_Workers">
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Exercise" EntitySet="Exercise" />
@@ -655,10 +577,6 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Schedule_Artist" EntitySet="Schedule_Artist" />
           </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Trainer_Status" Association="Self.FK_Schedule_Trainer_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
-          </AssociationSet>
           <AssociationSet Name="FK_Schedule_Trainer_Workers" Association="Self.FK_Schedule_Trainer_Workers">
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Schedule_Trainer" EntitySet="Schedule_Trainer" />
@@ -669,7 +587,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities">
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="CircusModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -682,6 +600,7 @@
               <MappingFragment StoreEntitySet="Application">
                 <ScalarProperty Name="ID_Application" ColumnName="ID_Application" />
                 <ScalarProperty Name="ID_Artiat" ColumnName="ID_Artiat" />
+                <ScalarProperty Name="Date_Application" ColumnName="Date_Application" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -713,7 +632,7 @@
                 <ScalarProperty Name="ID_Exercise" ColumnName="ID_Exercise" />
                 <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
+                <ScalarProperty Name="Name_Status" ColumnName="Name_Status" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -753,14 +672,6 @@
                 <ScalarProperty Name="ID_Cell" ColumnName="ID_Cell" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Hour" ColumnName="Hour" />
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="CircusModel.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
                 <ScalarProperty Name="Name_Status" ColumnName="Name_Status" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -33,7 +33,7 @@ namespace Circus.Pages.Personal
             string patronumic = DBConnection.loginedWorker.Patronymic;
             string fio = $"{surname} {name} {patronumic} ";
             name1TB.Text = fio;
-
+            
             Refresh();
             this.DataContext = this;
         }
@@ -41,7 +41,7 @@ namespace Circus.Pages.Personal
         private void exerciseLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (exerciseLV.SelectedItem is Exercise exercise)
-            {            
+            {
                 exx = exercise;
                 Refresh();
                 this.DataContext = this;
@@ -56,14 +56,15 @@ namespace Circus.Pages.Personal
             Exercise exercise = exx;
 
             if (nameStatusCB.SelectedIndex == 0)
-                exx.ID_Status = 1;
+                exx.Name_Status = "Не выполнено";
             else if (nameStatusCB.SelectedIndex == 1)
-                exx.ID_Status = 2;
+                exx.Name_Status = "В процессе";
             else if (nameStatusCB.SelectedIndex == 2)
-                exx.ID_Status = 3;
+                exx.Name_Status = "Выполнено";
             exx.Comment = nameCommentTB.Text;
             DBConnection.circus.SaveChanges();
             Refresh();
+
 
         }
 

@@ -16,6 +16,7 @@ namespace Circus.DB
     {
         public int ID_Application { get; set; }
         public Nullable<int> ID_Artiat { get; set; }
+        public Nullable<System.DateTime> Date_Application { get; set; }
         public string Description { get; set; }
     
         public virtual Workers Workers { get; set; }

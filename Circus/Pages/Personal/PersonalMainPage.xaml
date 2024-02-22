@@ -77,7 +77,7 @@
         <TextBlock x:Name="name1TB"
             Grid.Column="5" Grid.ColumnSpan="2"
             Grid.Row="0"     
-            VerticalAlignment="Top" HorizontalAlignment="Right"
+            VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10, 10, 0, 50"
             FontSize="25"/>
 
         <TextBlock Text="Задачи"
@@ -103,7 +103,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Status.Name_Status}" Width="200"/>
+                        <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Name_Status}" Width="200"/>
 
                         <GridViewColumn Header="Коментарий" Width="500">
                             <GridViewColumn.CellTemplate>
@@ -146,8 +146,8 @@
             Grid.Row="1" Grid.RowSpan="2"
             Grid.Column="5" Grid.ColumnSpan="2"
             Width="300" Height="50" FontSize="35"
-            HorizontalAlignment="Left"
-            Text="{Binding exx.Status.Name_Status}">
+            HorizontalAlignment="Left"             
+            Text="{Binding exx.Name_Status}">
             <TextBlock>Не выполнено</TextBlock>
             <TextBlock>В процессе</TextBlock>
             <TextBlock>Выполнено</TextBlock>
