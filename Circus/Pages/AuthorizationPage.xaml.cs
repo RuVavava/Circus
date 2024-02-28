@@ -40,7 +40,7 @@ namespace Circus.Pages
                 DBConnection.loginedWorker = curret_worker;
 
                 if (curret_worker != null && curret_worker.Role.Name_Role == "Администратор")
-                    MessageBox.Show("АДМИН!");
+                    NavigationService.Navigate(new Pages.Admin.AdminMainPage());
                 else if (curret_worker != null && curret_worker.Role.Name_Role == "Артист")
                     MessageBox.Show("АКТЕР!");
                 else if (curret_worker != null && curret_worker.Role.Name_Role == "Дрессировщик")

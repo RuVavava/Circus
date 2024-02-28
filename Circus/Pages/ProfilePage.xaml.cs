@@ -41,5 +41,10 @@ namespace Circus.Pages
 
             this.DataContext = this;
         }
+
+        private void backBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

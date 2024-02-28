@@ -119,5 +119,10 @@
             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
             FontSize="40" FontWeight="Medium"/>
 
+        <Button x:Name="backBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="0" Grid.ColumnSpan="1"
+                Grid.Row="0" Grid.RowSpan="1"
+                FontSize="100" Width="100" Height="100" HorizontalAlignment="Left" BorderThickness="0" VerticalAlignment="Top" VerticalContentAlignment="Center" Content="⬅" Click="backBTN_Click" />
+
     </Grid>
 </Page>

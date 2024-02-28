@@ -29,55 +29,36 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-
-        <Border  Width="550" Height="90" CornerRadius="0, 0, 50, 50"
-            Grid.Column="2" Grid.ColumnSpan="3"
-            Grid.Row="0" Grid.RowSpan="1"
-            HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="3,5,3,5">
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFABF1F" Offset="1"/>
-                    <GradientStop Color="#FFFD630E"/>
-                </LinearGradientBrush>
-            </Border.Background>
-            <Border.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFABF1F" Offset="1"/>
-                    <GradientStop Color="#FFFD630E"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-        </Border>
-
         <Image Source="/IMG/icon_profile.png"
-               Grid.Column="3" Grid.ColumnSpan="1"
+               Grid.Column="7" Grid.ColumnSpan="1"
                Grid.Row="0" Grid.RowSpan="1"
                Width="100" Height="60"
-               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20, 0, 0, 75"/>
+               VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20, 0, 18, 75"/>
 
         <Image Source="/IMG/icon_v.png"
-               Grid.Column="3" Grid.ColumnSpan="1"
-               Grid.Row="0" Grid.RowSpan="1"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="0" Grid.RowSpan="2"
                Width="100" Height="60"
-               VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 15, 80"/>
-        
-        <Button x:Name="profileBTN" Background="{x:Null}"
-                Grid.Column="3" Grid.ColumnSpan="1"
-                Grid.Row="0" Grid.RowSpan="1"
-                Width="100" Height="100" HorizontalAlignment="Left" BorderThickness="0" Click="profileBTN_Click">Профиль</Button>
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,16,134"/>
 
-        <Button x:Name="vihodBTN" Background="{x:Null}"
-                Grid.Column="3" Grid.ColumnSpan="1"
+        <Button x:Name="profileBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="7" Grid.ColumnSpan="1"
                 Grid.Row="0" Grid.RowSpan="1"
-                Width="100" Height="100" HorizontalAlignment="Right" BorderThickness="0" Click="vihodBTN_Click">Выйти</Button>
+                Width="100" Height="50" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"  BorderThickness="0" Click="profileBTN_Click">Профиль</Button>
+
+        <Button x:Name="vihodBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="1" Grid.RowSpan="1"
+                Width="100" Height="50" HorizontalAlignment="Right" BorderThickness="0" Click="vihodBTN_Click" Margin="0,6,0,99">Выйти</Button>
 
 
 
 
         <!--ИМЯ ВОШЕДШЕГО ПОЛЬЗОВАТЕЛЯ-->
         <TextBlock x:Name="name1TB"
-            Grid.Column="5" Grid.ColumnSpan="2"
+            Grid.Column="2" Grid.ColumnSpan="3"
             Grid.Row="0"     
-            VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10, 10, 0, 50"
+            VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 0, 0, 50"
             FontSize="25"/>
 
         <TextBlock Text="Задачи"
