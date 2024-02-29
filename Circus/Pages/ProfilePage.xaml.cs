@@ -39,12 +39,52 @@ namespace Circus.Pages
             loginTB.Text = Convert.ToString(DBConnection.loginedWorker.Login);
             passwordTB.Text = Convert.ToString(DBConnection.loginedWorker.Password);
 
+            CheckConditionAndToggleButtonVisibility();
             this.DataContext = this;
         }
 
         private void backBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void CheckConditionAndToggleButtonVisibility()
+        {
+            if (DBConnection.loginedWorker.ID_Role == 1)
+            {
+                AdminPhoto.Visibility = Visibility.Visible; // Показать кнопку
+            }
+            else
+            {
+                AdminPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+            }
+
+            if (DBConnection.loginedWorker.ID_Role == 2)
+            {
+                ArtistPhoto.Visibility = Visibility.Visible; // Показать кнопку
+            }
+            else
+            {
+                ArtistPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+            }
+
+            if (DBConnection.loginedWorker.ID_Role == 3)
+            {
+                AnimalPhoto.Visibility = Visibility.Visible; // Показать кнопку
+            }
+            else
+            {
+                AnimalPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+            }
+
+            if (DBConnection.loginedWorker.ID_Role == 4)
+            {
+                ObsPersPhoto.Visibility = Visibility.Visible; // Показать кнопку
+            }
+            else
+            {
+                ObsPersPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+            }
         }
     }
 }

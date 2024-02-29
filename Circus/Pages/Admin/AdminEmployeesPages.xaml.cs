@@ -63,7 +63,7 @@ namespace Circus.Pages.Admin
 
         private void animalBTN_Click(object sender, RoutedEventArgs e) //Животные
         {
-
+            NavigationService.Navigate(new Pages.Admin.AdminAnimalsPage());
         }
 
         private void artistBTN_Click(object sender, RoutedEventArgs e) //Артысты
@@ -106,5 +106,6 @@ namespace Circus.Pages.Admin
         {
             NavigationService.Navigate(new Pages.Admin.AdminAddEmplPage());
         }
+
     }
 }

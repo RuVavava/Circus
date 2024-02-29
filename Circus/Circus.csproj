@@ -141,7 +141,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Admin\AdminAddAnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Admin\AdminAddEmplPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Admin\AdminAnimalsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,8 +175,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Admin\AdminAddAnimalPage.xaml.cs">
+      <DependentUpon>AdminAddAnimalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Admin\AdminAddEmplPage.xaml.cs">
       <DependentUpon>AdminAddEmplPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AdminAnimalsPage.xaml.cs">
+      <DependentUpon>AdminAnimalsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\AdminEmployeesPages.xaml.cs">
       <DependentUpon>AdminEmployeesPages.xaml</DependentUpon>

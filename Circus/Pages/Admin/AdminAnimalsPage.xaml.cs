@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Circus.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,27 @@ using System.Windows.Shapes;
 namespace Circus.Pages.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для AdminMainPage.xaml
+    /// Логика взаимодействия для AdminAnimalsPage.xaml
     /// </summary>
-    public partial class AdminMainPage : Page
+    public partial class AdminAnimalsPage : Page
     {
-        public AdminMainPage()
+        public static List<Cell> cells { get; set; }
+        public AdminAnimalsPage()
         {
             InitializeComponent();
-            Text();
+            Refresh();
         }
 
-        public void Text()
+        public void Refresh()
         {
-            opisanieTB.Text = "   Цирковой спектакль «Ночь, улица, фонарь, аптека…» - невероятный коктейль классики русской литературы и российского цирка.\n   Вы увидите симбиоз художественного мастерства и самых разнообразных жанров современного цирка: безупречная дрессура, морские хищники и сложнейшие акробатические трюки.";
+            string surname = DBConnection.loginedWorker.Surname;
+            string name = DBConnection.loginedWorker.Name;
+            string patronumic = DBConnection.loginedWorker.Patronymic;
+            string fio = $"{surname} {name} {patronumic} ";
+            name1TB.Text = fio;
+
+            cells = new List<Cell>(DBConnection.circus.Cell.ToList());
+            animalsLV.ItemsSource = cells;
         }
 
         private void profileBTN_Click(object sender, RoutedEventArgs e) //Профиль
@@ -64,6 +73,21 @@ namespace Circus.Pages.Admin
         private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
         {
 
+        }
+
+        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (animalsLV.SelectedItem is Cell cells)
+            {
+                DBConnection.circus.Cell.Remove(cells);
+                DBConnection.circus.SaveChanges();
+            }
+            Refresh();
+        }
+
+        private void newAEmplBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminAddAnimalPage());
         }
     }
 }
