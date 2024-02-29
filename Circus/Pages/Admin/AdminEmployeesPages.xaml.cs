@@ -73,7 +73,7 @@ namespace Circus.Pages.Admin
 
         private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
         {
-
+            NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());  
         }
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -106,6 +106,5 @@ namespace Circus.Pages.Admin
         {
             NavigationService.Navigate(new Pages.Admin.AdminAddEmplPage());
         }
-
     }
 }

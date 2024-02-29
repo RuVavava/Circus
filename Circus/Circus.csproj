@@ -157,11 +157,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Admin\AdminArtistRaspisanie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Admin\AdminEmployeesPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Admin\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Admin\AdminObslPersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,11 +199,17 @@
     <Compile Include="Pages\Admin\AdminArtistPage.xaml.cs">
       <DependentUpon>AdminArtistPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Admin\AdminArtistRaspisanie.xaml.cs">
+      <DependentUpon>AdminArtistRaspisanie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Admin\AdminEmployeesPages.xaml.cs">
       <DependentUpon>AdminEmployeesPages.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AdminObslPersPage.xaml.cs">
+      <DependentUpon>AdminObslPersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>

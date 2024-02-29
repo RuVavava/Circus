@@ -96,7 +96,44 @@ namespace Circus.Pages.Admin
 
         private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
         {
+            NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());
+        }
 
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTB.Text.Length > 0)
+            {
+                artistsLV.ItemsSource = new List<Workers>(DBConnection.circus.Workers.
+                    Where(i => i.Surname.ToLower().StartsWith(SearchTB.Text.Trim().ToLower()) ||
+                    i.Name.ToLower().StartsWith(SearchTB.Text.Trim().ToLower()) ||
+                    i.Patronymic.ToLower().StartsWith(SearchTB.Text.Trim().ToLower()) && i.ID_Role == 2));
+
+            }
+            else
+            {
+                artistsLV.ItemsSource = new List<Workers>(DBConnection.circus.Workers.ToList());
+            }
+        }
+
+        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (artistSchLV.SelectedItem is Schedule_Artist sc)
+            {
+                DBConnection.circus.Schedule_Artist.Remove(sc);
+                DBConnection.circus.SaveChanges();
+            }
+            else if(artistAplLV.SelectedItem is DB.Application pl)
+            {
+                DBConnection.circus.Application.Remove(pl);
+                DBConnection.circus.SaveChanges();
+            }
+            Refresh();
+            NavigationService.Navigate(new Pages.Admin.AdminArtistPage());
+        }
+
+        private void newAEmplBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminArtistRaspisanie());
         }
     }
 }

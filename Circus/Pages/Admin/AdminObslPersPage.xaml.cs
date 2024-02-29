@@ -13,31 +13,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Circus.Pages.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для AdminAnimalsPage.xaml
+    /// Логика взаимодействия для AdminObslPersPage.xaml
     /// </summary>
-    public partial class AdminAnimalsPage : Page
+    public partial class AdminObslPersPage : Page
     {
-        public static List<Cell> cells { get; set; }
-        public AdminAnimalsPage()
+        public static List<Workers> obspers { get; set; }
+        public static List<Exercise> exercise { get; set; }
+        Workers conte_obs;
+        public AdminObslPersPage()
         {
             InitializeComponent();
-            Refresh();
-        }
-
-        public void Refresh()
-        {
-            string surname = DBConnection.loginedWorker.Surname;
-            string name = DBConnection.loginedWorker.Name;
-            string patronumic = DBConnection.loginedWorker.Patronymic;
-            string fio = $"{surname} {name} {patronumic} ";
-            name1TB.Text = fio;
-
-            cells = new List<Cell>(DBConnection.circus.Cell.ToList());
-            animalsLV.ItemsSource = cells;
+            obspers = new List<Workers>(DBConnection.circus.Workers.Where(i => i.ID_Role == 4).ToList());
+            obspersLV.ItemsSource = obspers;
+            this.DataContext = this;
         }
 
         private void profileBTN_Click(object sender, RoutedEventArgs e) //Профиль
@@ -75,19 +68,18 @@ namespace Circus.Pages.Admin
             NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());
         }
 
-        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
+        private void obspersLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (animalsLV.SelectedItem is Cell cells)
+            if (obspersLV.SelectedItem is Workers obspers)
             {
-                DBConnection.circus.Cell.Remove(cells);
-                DBConnection.circus.SaveChanges();
-            }
-            Refresh();
-        }
+                conte_obs = obspers;
 
-        private void newAEmplBTN_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Pages.Admin.AdminAddAnimalPage());
+                exercise = new List<Exercise>(DBConnection.circus.Exercise.Where(i => i.ID_Worker == conte_obs.ID_Worker).ToList());
+                zadachhLV.ItemsSource = exercise;
+
+                this.DataContext = this;
+
+            }
         }
     }
 }
