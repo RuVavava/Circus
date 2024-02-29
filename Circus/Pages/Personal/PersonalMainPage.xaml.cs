@@ -70,6 +70,12 @@ namespace Circus.Pages.Personal
 
         public void Refresh()
         {
+            string surname = DBConnection.loginedWorker.Surname;
+            string name = DBConnection.loginedWorker.Name;
+            string patronumic = DBConnection.loginedWorker.Patronymic;
+            string fio = $"{surname} {name} {patronumic} ";
+            name1TB.Text = fio;
+
             exercise = new List<Exercise>(DBConnection.circus.Exercise.Where(i => i.ID_Worker == DBConnection.loginedWorker.ID_Worker).ToList());
             exerciseLV.ItemsSource = exercise;
         }

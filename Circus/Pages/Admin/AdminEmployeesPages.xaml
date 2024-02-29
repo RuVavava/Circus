@@ -1,0 +1,207 @@
+﻿<Page x:Class="Circus.Pages.Admin.AdminEmployeesPages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Circus.Pages.Admin"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontFamily="Courier New"
+      Title="AdminEmployeesPages">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Width="100" Height="1080" Grid.Row="0" Grid.RowSpan="7" Grid.Column="6" HorizontalAlignment="Right" Background="#ADD8E6"/>
+
+        <Image Source="/IMG/icon_profile.png"
+               Grid.Column="7" Grid.ColumnSpan="1"
+               Grid.Row="0" Grid.RowSpan="1"
+               Width="100" Height="60"
+               VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20, 0, 18, 75"/>
+        
+        <TextBlock x:Name="name1TB"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"     
+            VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10, 50, 0, 0"
+            FontSize="25"/>
+
+
+        <Image Source="/IMG/icon_main.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="0" Grid.RowSpan="2"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,16,134"/>
+
+        <Image Source="/IMG/icon_sotrudniki.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="1"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,34"/>
+
+        <Image Source="/IMG/icon_animal.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="2"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,86"/>
+
+        <Image Source="/IMG/icon_artist.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="2"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,146" Grid.RowSpan="2"/>
+
+        <Image Source="/IMG/icon_obspersonal.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="3"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,54"/>
+
+        <Image Source="/IMG/icon_v.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="3"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,16,119" Grid.RowSpan="2"/>
+
+        <Button x:Name="profileBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="7" Grid.ColumnSpan="1"
+                Grid.Row="0" Grid.RowSpan="1"
+                Width="100" Height="50" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"  BorderThickness="0" Click="profileBTN_Click" >Профиль</Button>
+
+        <Button x:Name="mainBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="1" Grid.RowSpan="1"
+                Width="100" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,6,0,99" Click="mainBTN_Click">Главная</Button>
+
+        <Button x:Name="sotrudnikiBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="1" Grid.RowSpan="2"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,106,-10,153" Click="sotrudnikiBTN_Click" >Сотрудники</Button>
+
+        <Button x:Name="animalBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="2"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,42,-13,62" RenderTransformOrigin="0.475,0.726" >Вольеры</Button>
+
+        <Button x:Name="artistBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="2"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,136,-12,122" RenderTransformOrigin="0.475,0.726" Grid.RowSpan="2" >Артисты</Button>
+
+        <Button x:Name="obspersBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="3"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,75,-8,29" RenderTransformOrigin="0.475,0.726" >Персонал</Button>
+
+        <Button x:Name="vihodBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="4"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,20,-10,84" RenderTransformOrigin="0.475,0.726" Click="vihodBTN_Click" >Выход</Button>
+
+        <TextBlock Text="Сотрудники"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"
+            HorizontalAlignment="Center" VerticalAlignment="Top"
+            FontSize="60" FontWeight="Medium"/>
+
+        <Button Content="Добавить" x:Name="newAEmplBTN"
+            Grid.Column="5"  Grid.ColumnSpan="2"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="newAEmplBTN_Click">
+        </Button>
+
+        <Button Content="Удалить" x:Name="deliteAEmplBTN"
+            Grid.Column="4"  Grid.ColumnSpan="1"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C" Click="deliteAEmplBTN_Click">
+        </Button>
+
+        <ListView x:Name="workersLV"
+            Grid.Row="1" Grid.RowSpan="6"
+            Grid.Column="0" Grid.ColumnSpan="7"
+            Width="1600" Height="700" VerticalAlignment="Top"
+            FontSize="25"
+            ItemsSource="{Binding empl}">
+            <ListView.View>
+                <GridView >
+                    <GridView.Columns>
+                        
+                        <GridViewColumn Header="Фамилия" Width="320">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Surname}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+
+                        <GridViewColumn Header="Имя" Width="320">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Отчество" Width="320">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Patronymic}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+
+                        
+                        <GridViewColumn Header="Дата Рождения" Width="280">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BH, StringFormat=d}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        
+                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Role.Name_Role}" Width="340"/>
+                        
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center" FontSize="25"
+            Text="  🔎"/>
+        <TextBox x:Name="SearchTB"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Grid.Row="0"
+            Width="270" FontSize="25"
+                 Height="50" TextChanged="SearchTB_TextChanged"/>
+
+    </Grid>
+</Page>

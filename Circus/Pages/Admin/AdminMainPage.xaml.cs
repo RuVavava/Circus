@@ -26,24 +26,44 @@ namespace Circus.Pages.Admin
             Text();
         }
 
-        private void backBTN_Click(object sender, RoutedEventArgs e)
+        public void Text()
         {
-            NavigationService.GoBack();
+            opisanieTB.Text = "   Цирковой спектакль «Ночь, улица, фонарь, аптека…» - невероятный коктейль классики русской литературы и российского цирка.\n   Вы увидите симбиоз художественного мастерства и самых разнообразных жанров современного цирка: безупречная дрессура, морские хищники и сложнейшие акробатические трюки.";
         }
 
-        private void profileBTN_Click(object sender, RoutedEventArgs e)
+        private void profileBTN_Click(object sender, RoutedEventArgs e) //Профиль
         {
             NavigationService.Navigate(new Pages.ProfilePage());
         }
 
-        private void vihodBTN_Click(object sender, RoutedEventArgs e)
+        private void vihodBTN_Click(object sender, RoutedEventArgs e) //Выход
         {
             NavigationService.Navigate(new Pages.AuthorizationPage());
         }
 
-        public void Text()
+        private void sotrudnikiBTN_Click(object sender, RoutedEventArgs e) //Сотрудники
         {
-            opisanieTB.Text = "   Цирковой спектакль «Ночь, улица, фонарь, аптека…» - невероятный коктейль классики русской литературы и российского цирка.\n   Вы увидите симбиоз художественного мастерства и самых разнообразных жанров современного цирка: безупречная дрессура, морские хищники и сложнейшие акробатические трюки.";
+            NavigationService.Navigate(new Pages.Admin.AdminEmployeesPages());
+        }
+
+        private void mainBTN_Click(object sender, RoutedEventArgs e) //Главная
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminMainPage());
+        }
+
+        private void animalBTN_Click(object sender, RoutedEventArgs e) //Животные
+        {
+
+        }
+
+        private void artistBTN_Click(object sender, RoutedEventArgs e) //Артысты
+        {
+
+        }
+
+        private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
+        {
+
         }
     }
 }
