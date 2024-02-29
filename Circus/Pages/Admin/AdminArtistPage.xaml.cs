@@ -17,12 +17,16 @@ using System.Windows.Shapes;
 namespace Circus.Pages.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для AdminAnimalsPage.xaml
+    /// Логика взаимодействия для AdminArtistPage.xaml
     /// </summary>
-    public partial class AdminAnimalsPage : Page
+    public partial class AdminArtistPage : Page
     {
-        public static List<Cell> cells { get; set; }
-        public AdminAnimalsPage()
+        public static List<Workers> artists { get; set; }
+        public static List<DB.Application> application_a { get; set; }
+        public static List<Schedule_Artist> schedule_Artists { get; set; }
+        public static List<Event> events { get; set; }
+        Workers conte_artist;
+        public AdminArtistPage()
         {
             InitializeComponent();
             Refresh();
@@ -36,9 +40,29 @@ namespace Circus.Pages.Admin
             string fio = $"{surname} {name} {patronumic} ";
             name1TB.Text = fio;
 
-            cells = new List<Cell>(DBConnection.circus.Cell.ToList());
-            animalsLV.ItemsSource = cells;
+            artists = new List<Workers>(DBConnection.circus.Workers.Where(i => i.ID_Role == 2).ToList());
+            artistsLV.ItemsSource = artists;
+            this.DataContext = this;
         }
+
+        private void artistsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (artistsLV.SelectedItem is Workers artist)
+            {
+                conte_artist = artist;
+
+                schedule_Artists = new List<Schedule_Artist>(DBConnection.circus.Schedule_Artist.Where(i => i.ID_Artist == conte_artist.ID_Worker).ToList());
+                artistSchLV.ItemsSource = schedule_Artists;
+
+                application_a = new List<DB.Application>(DBConnection.circus.Application.Where(i => i.ID_Artiat == conte_artist.ID_Worker).ToList());
+                artistAplLV.ItemsSource = application_a;
+
+                Refresh();
+                this.DataContext = this;
+
+            }
+        }
+
 
         private void profileBTN_Click(object sender, RoutedEventArgs e) //Профиль
         {
@@ -73,21 +97,6 @@ namespace Circus.Pages.Admin
         private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
         {
 
-        }
-
-        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
-        {
-            if (animalsLV.SelectedItem is Cell cells)
-            {
-                DBConnection.circus.Cell.Remove(cells);
-                DBConnection.circus.SaveChanges();
-            }
-            Refresh();
-        }
-
-        private void newAEmplBTN_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Pages.Admin.AdminAddAnimalPage());
         }
     }
 }

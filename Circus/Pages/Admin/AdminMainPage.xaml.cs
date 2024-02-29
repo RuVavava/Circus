@@ -58,7 +58,7 @@ namespace Circus.Pages.Admin
 
         private void artistBTN_Click(object sender, RoutedEventArgs e) //Артысты
         {
-
+            NavigationService.Navigate(new Pages.Admin.AdminArtistPage());
         }
 
         private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл

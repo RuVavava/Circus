@@ -153,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Admin\AdminArtistPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Admin\AdminEmployeesPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +187,9 @@
     </Compile>
     <Compile Include="Pages\Admin\AdminAnimalsPage.xaml.cs">
       <DependentUpon>AdminAnimalsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AdminArtistPage.xaml.cs">
+      <DependentUpon>AdminArtistPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\AdminEmployeesPages.xaml.cs">
       <DependentUpon>AdminEmployeesPages.xaml</DependentUpon>
