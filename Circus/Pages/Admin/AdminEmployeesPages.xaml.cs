@@ -106,5 +106,17 @@ namespace Circus.Pages.Admin
         {
             NavigationService.Navigate(new Pages.Admin.AdminAddEmplPage());
         }
+
+        private void workersLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (workersLV.SelectedItem is Workers worker)
+            {
+                workersLV.SelectedItem = null;
+                NavigationService.Navigate(new Pages.Admin.AdminEditEmplPage(worker)); 
+                Refresh();
+            }
+
+        }
     }
 }

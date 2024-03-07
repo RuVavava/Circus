@@ -142,7 +142,7 @@
             Grid.Column="0" Grid.ColumnSpan="7"
             Width="1600" Height="700" VerticalAlignment="Top"
             FontSize="25"
-            ItemsSource="{Binding empl}">
+            ItemsSource="{Binding empl}" SelectionChanged="workersLV_SelectionChanged">
             <ListView.View>
                 <GridView >
                     <GridView.Columns>
