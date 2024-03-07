@@ -162,6 +162,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Admin\AdminEditAnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Admin\AdminEditEmplPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +210,9 @@
     </Compile>
     <Compile Include="Pages\Admin\AdminArtistRaspisanie.xaml.cs">
       <DependentUpon>AdminArtistRaspisanie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AdminEditAnimalPage.xaml.cs">
+      <DependentUpon>AdminEditAnimalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\AdminEditEmplPage.xaml.cs">
       <DependentUpon>AdminEditEmplPage.xaml</DependentUpon>
