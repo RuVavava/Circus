@@ -25,11 +25,14 @@ namespace Circus.Pages.Admin
         public static List<Workers> workers { get; set; }
         public static List<Role> roles { get; set; }
         public static List<Gender> genders { get; set; }
+        public static Workers w { get; set; }
         Workers context_worker;
         public AdminEditEmplPage(Workers worker)
         {
             InitializeComponent();
             context_worker = worker;
+            w = worker;
+
             OutputInfo();
         }
 
@@ -85,15 +88,14 @@ namespace Circus.Pages.Admin
 
         private void OutputInfo()
         {
-            roles = DBConnection.circus.Role.ToList();
-            genders = DBConnection.circus.Gender.ToList();
+            genderTB.ItemsSource = DB.DBConnection.circus.Gender.ToList();
+            roleTB.ItemsSource = DB.DBConnection.circus.Role.ToList();
 
             surnameTB.Text = context_worker.Surname;
             nameTB.Text = context_worker.Name;
             patrnameTB.Text = context_worker.Patronymic;
             bhTB.Text = Convert.ToString(context_worker.BH);
-            roleTB.ItemsSource = context_worker.Role.Name_Role;
-            genderTB.ItemsSource = context_worker.Gender.Name_Gender;
+
             loginTB.Text = Convert.ToString(context_worker.Login);
             passwordTB.Text = Convert.ToString(context_worker.Password);
 

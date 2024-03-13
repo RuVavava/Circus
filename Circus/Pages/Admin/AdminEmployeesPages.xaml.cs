@@ -107,7 +107,8 @@ namespace Circus.Pages.Admin
             NavigationService.Navigate(new Pages.Admin.AdminAddEmplPage());
         }
 
-        private void workersLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void editAnimlBTN_Click(object sender, RoutedEventArgs e)
         {
 
             if (workersLV.SelectedItem is Workers worker)
@@ -116,7 +117,6 @@ namespace Circus.Pages.Admin
                 NavigationService.Navigate(new Pages.Admin.AdminEditEmplPage(worker)); 
                 Refresh();
             }
-
         }
     }
 }

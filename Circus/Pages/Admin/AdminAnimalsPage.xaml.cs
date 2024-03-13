@@ -89,5 +89,15 @@ namespace Circus.Pages.Admin
         {
             NavigationService.Navigate(new Pages.Admin.AdminAddAnimalPage());
         }
+
+        private void editAnimlBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (animalsLV.SelectedItem is Cell cells)
+            {
+                animalsLV.SelectedItem = null;
+                NavigationService.Navigate(new Pages.Admin.AdminEditAnimalPage());
+                Refresh();
+            }
+        }
     }
 }
