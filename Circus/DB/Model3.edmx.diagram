@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="44bbd93edf674105836917dd4de4a188" Name="Diagram1">
+      <Diagram DiagramId="197da28a56154ddabeb90bdd3f41dd8c" Name="Diagram1">
         <EntityTypeShape EntityType="CircusModel.Admin" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.Application" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CircusModel.Cell" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />

@@ -1,0 +1,161 @@
+﻿<Page x:Class="Circus.Pages.Trainer.TrainerAnimalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Circus.Pages.Trainer"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontFamily="Courier New"
+      Title="TrainerAnimalPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Width="100" Height="1080" Grid.Row="0" Grid.RowSpan="7" Grid.Column="6" HorizontalAlignment="Right" Background="#ADD8E6"/>
+
+        <Image Source="/IMG/icon_profile.png"
+               Grid.Column="7" Grid.ColumnSpan="1"
+               Grid.Row="0" Grid.RowSpan="1"
+               Width="100" Height="60"
+               VerticalAlignment="Center" HorizontalAlignment="Right" Margin="20, 0, 18, 75"/>
+
+
+        <Image Source="/IMG/icon_raspisanie.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="0" Grid.RowSpan="2"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,16,134"/>
+
+        <Image Source="/IMG/icon_animal.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="1"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,34"/>
+
+        <Image Source="/IMG/icon_v.png"
+               Grid.Column="6" Grid.ColumnSpan="1"
+               Grid.Row="2"
+               Width="100" Height="60"
+               VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,14,86"/>
+
+
+        <Button x:Name="profileBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="7" Grid.ColumnSpan="1"
+                Grid.Row="0" Grid.RowSpan="1"
+                Width="100" Height="50" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"  BorderThickness="0">Профиль</Button>
+
+        <Button x:Name="raspisBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="1" Grid.RowSpan="1"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,6,-10,99">Расписание</Button>
+
+        <Button x:Name="sotrudnikiBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="1" Grid.RowSpan="2"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,106,-10,153">Вольеры</Button>
+
+        <Button x:Name="animalBTN" Background="{x:Null}" Foreground="Black"
+                Grid.Column="6" Grid.ColumnSpan="1"
+                Grid.Row="2"
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,42,-13,62" RenderTransformOrigin="0.475,0.726">Выход</Button>
+
+        <TextBlock Text="Вольеры"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"
+            HorizontalAlignment="Center" VerticalAlignment="Top"
+            FontSize="60" FontWeight="Medium"/>
+
+        <ListView x:Name="animalsLV"
+            Grid.Row="1" Grid.RowSpan="6"
+            Grid.Column="0" Grid.ColumnSpan="7"
+            Width="1600" Height="850" VerticalAlignment="Top"
+            FontSize="25"
+            ItemsSource="{Binding animals}">
+            <ListView.View>
+                <GridView >
+                    <GridView.Columns>
+
+                        <GridViewColumn Header="№ Клетки" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ID_Cell}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Имя животного" Width="320">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name_Animal}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+
+                        <GridViewColumn Header="Возраст" Width="170">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Age_Animal}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Вид" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding View_Animal}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Пол" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Gender.Name_Gender}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+
+                        <GridViewColumn Header="Питание" Width="300">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Food}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Уход" Width="300">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Care}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

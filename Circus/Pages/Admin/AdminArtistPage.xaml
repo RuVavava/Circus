@@ -183,7 +183,7 @@
                 <GridView >
                     <GridView.Columns>
 
-                        <GridViewColumn Header="Занятость" Width="400">
+                        <GridViewColumn Header="Занятость" Width="330">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Event.Name_Event}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
@@ -191,18 +191,18 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Дата" Width="150">
+                        <GridViewColumn Header="Дата" Width="170">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                    <TextBlock Text="{Binding Date, StringFormat=d}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Часы" Width="200">
+                        <GridViewColumn Header="Часы" Width="190">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Hour}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                    <TextBlock Text="{Binding Time, StringFormat= HH:mm}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -230,7 +230,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Описание" Width="400">
+                        <GridViewColumn Header="Описание" Width="350">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
@@ -249,6 +249,8 @@
             Width="500" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
             Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="newAEmplBTN_Click">
         </Button>
+        
+        
 
         <Button Content="Удалить" x:Name="deliteAEmplBTN"
             Grid.Column="3"  Grid.ColumnSpan="1"

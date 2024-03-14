@@ -18,7 +18,7 @@ namespace Circus.DB
         public Nullable<int> ID_Trainer { get; set; }
         public Nullable<int> ID_Cell { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.TimeSpan> Time { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
         public Nullable<int> Hour { get; set; }
         public Nullable<int> Name_Status { get; set; }
     

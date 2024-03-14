@@ -1,0 +1,105 @@
+﻿<Page x:Class="Circus.Pages.Trainer.TrainerAddRaspisaniePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Circus.Pages.Trainer"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontFamily="Courier New"
+      Title="TrainerAddRaspisaniePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Добавить новую тренировку"
+            Grid.Column="1" Grid.ColumnSpan="5"
+            Grid.Row="0"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            FontSize="60" FontWeight="Medium"/>
+
+        <TextBlock Text="Животное:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <ComboBox x:Name="artistCB"
+            Grid.Column="1" Grid.ColumnSpan="3"
+            Grid.Row="2" Width="700"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium" ItemsSource="{Binding animals}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding ID_Cell}"/>
+                        <TextBlock Text="{Binding Name_Animal}"/>
+                        <TextBlock Text="{Binding View_Animal}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Text="Дата:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="4"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <DatePicker  x:Name="dateeventTB"
+            Grid.Column="1" Grid.ColumnSpan="2"
+            Grid.Row="4" Width="400"
+             VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Black"
+            FontSize="40"/>
+
+        <materialDesign:TimePicker
+            x:Name="timeeventTB"
+            Grid.Column="3" Grid.ColumnSpan="2"
+            Grid.Row="4" Width="400"
+             VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Black"
+            FontSize="40"/>
+
+        <TextBlock Text="Часы:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="5"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBox x:Name="houreventTB"
+            Grid.Column="1" Grid.ColumnSpan="1"
+            Grid.Row="5" Width="200"
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <Button Content="Сохранить" x:Name="savenewAEmplBTN"
+            Grid.Column="5"  Grid.ColumnSpan="2"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="savenewAEmplBTN_Click">
+        </Button>
+
+        <Button Content="Отмена" x:Name="deliteAEmplBTN"
+            Grid.Column="4"  Grid.ColumnSpan="1"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C">
+        </Button>
+    </Grid>
+</Page>
