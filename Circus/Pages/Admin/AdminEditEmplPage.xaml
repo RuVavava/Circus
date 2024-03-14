@@ -76,7 +76,7 @@
             Grid.Column="2" Grid.ColumnSpan="2"
             Grid.Row="4" Width="300"
              VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Black"
-            FontSize="40"/>
+            FontSize="40" Text="{Binding a, StringFormat=d}"/>
 
         <TextBlock Text="Пол:"
             Grid.Column="3" Grid.ColumnSpan="1"

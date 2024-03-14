@@ -34,6 +34,7 @@ namespace Circus.Pages
             surnameTB.Text = DBConnection.loginedWorker.Surname;
             nameTB.Text = DBConnection.loginedWorker.Name;
             patrnameTB.Text = DBConnection.loginedWorker.Patronymic;
+
             bhTB.Text = Convert.ToString(DBConnection.loginedWorker.BH);
             roleTB.Text = DBConnection.loginedWorker.Role.Name_Role;
             loginTB.Text = Convert.ToString(DBConnection.loginedWorker.Login);
@@ -52,38 +53,38 @@ namespace Circus.Pages
         {
             if (DBConnection.loginedWorker.ID_Role == 1)
             {
-                AdminPhoto.Visibility = Visibility.Visible; // Показать кнопку
+                AdminPhoto.Visibility = Visibility.Visible; // Показать фотку
             }
             else
             {
-                AdminPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+                AdminPhoto.Visibility = Visibility.Collapsed; // Скрыть фотку
             }
 
             if (DBConnection.loginedWorker.ID_Role == 3)
             {
-                ArtistPhoto.Visibility = Visibility.Visible; // Показать кнопку
+                ArtistPhoto.Visibility = Visibility.Visible; // Показать фотку
             }
             else
             {
-                ArtistPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+                ArtistPhoto.Visibility = Visibility.Collapsed; // Скрыть фотку
             }
 
             if (DBConnection.loginedWorker.ID_Role == 2)
             {
-                AnimalPhoto.Visibility = Visibility.Visible; // Показать кнопку
+                AnimalPhoto.Visibility = Visibility.Visible; // Показать фотку
             }
             else
             {
-                AnimalPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+                AnimalPhoto.Visibility = Visibility.Collapsed; // Скрыть фотку
             }
 
             if (DBConnection.loginedWorker.ID_Role == 4)
             {
-                ObsPersPhoto.Visibility = Visibility.Visible; // Показать кнопку
+                ObsPersPhoto.Visibility = Visibility.Visible; // Показать фотку
             }
             else
             {
-                ObsPersPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
+                ObsPersPhoto.Visibility = Visibility.Collapsed; // Скрыть фотку
             }
         }
     }

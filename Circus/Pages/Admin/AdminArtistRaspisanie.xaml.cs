@@ -28,7 +28,7 @@ namespace Circus.Pages.Admin
         public AdminArtistRaspisanie()
         {
             InitializeComponent();
-            artists = DB.DBConnection.circus.Workers.Where(i => i.ID_Role == 2).ToList();
+            artists = DB.DBConnection.circus.Workers.Where(i => i.ID_Role == 3).ToList();
             events = DB.DBConnection.circus.Event.ToList();
             this.DataContext = this;
         }

@@ -40,7 +40,7 @@ namespace Circus.Pages.Admin
             string fio = $"{surname} {name} {patronumic} ";
             name1TB.Text = fio;
 
-            artists = new List<Workers>(DBConnection.circus.Workers.Where(i => i.ID_Role == 2).ToList());
+            artists = new List<Workers>(DBConnection.circus.Workers.Where(i => i.ID_Role == 3).ToList());
             artistsLV.ItemsSource = artists;
             this.DataContext = this;
         }
