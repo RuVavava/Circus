@@ -81,13 +81,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DB\Admin.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Application.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Cell.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Page Include="MainWindow.xaml">
@@ -99,43 +99,43 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Event.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Exercise.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Gender.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model3.Context.cs">
+    <Compile Include="DB\Model4.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.Context.tt</DependentUpon>
+      <DependentUpon>Model4.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model3.cs">
+    <Compile Include="DB\Model4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model3.Designer.cs">
+    <Compile Include="DB\Model4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.edmx</DependentUpon>
+      <DependentUpon>Model4.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Role.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Schedule_Artist.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Schedule_Trainer.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Workers.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Label.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -273,12 +273,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DB\Model3.edmx">
+    <EntityDeploy Include="DB\Model4.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DB\Model3.edmx.diagram">
-      <DependentUpon>Model3.edmx</DependentUpon>
+    <None Include="DB\Model4.edmx.diagram">
+      <DependentUpon>Model4.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -316,18 +316,19 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="DB\Model3.Context.tt">
+    <Content Include="DB\Model4.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.Context.cs</LastGenOutput>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\Model3.tt">
+    <Content Include="DB\Model4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.cs</LastGenOutput>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="IMG\icon_raspisanie.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

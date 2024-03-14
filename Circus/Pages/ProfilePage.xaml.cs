@@ -59,7 +59,7 @@ namespace Circus.Pages
                 AdminPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
             }
 
-            if (DBConnection.loginedWorker.ID_Role == 2)
+            if (DBConnection.loginedWorker.ID_Role == 3)
             {
                 ArtistPhoto.Visibility = Visibility.Visible; // Показать кнопку
             }
@@ -68,7 +68,7 @@ namespace Circus.Pages
                 ArtistPhoto.Visibility = Visibility.Collapsed; // Скрыть кнопку
             }
 
-            if (DBConnection.loginedWorker.ID_Role == 3)
+            if (DBConnection.loginedWorker.ID_Role == 2)
             {
                 AnimalPhoto.Visibility = Visibility.Visible; // Показать кнопку
             }

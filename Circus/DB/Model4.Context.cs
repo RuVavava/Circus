@@ -13,10 +13,10 @@ namespace Circus.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CircusEntities2 : DbContext
+    public partial class CircusEntities3 : DbContext
     {
-        public CircusEntities2()
-            : base("name=CircusEntities2")
+        public CircusEntities3()
+            : base("name=CircusEntities3")
         {
         }
     

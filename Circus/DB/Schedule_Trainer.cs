@@ -20,7 +20,7 @@ namespace Circus.DB
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<System.DateTime> Time { get; set; }
         public Nullable<int> Hour { get; set; }
-        public Nullable<int> Name_Status { get; set; }
+        public string Name_Status { get; set; }
     
         public virtual Cell Cell { get; set; }
         public virtual Workers Workers { get; set; }

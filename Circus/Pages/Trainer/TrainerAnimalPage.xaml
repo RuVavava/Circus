@@ -60,22 +60,22 @@
         <Button x:Name="profileBTN" Background="{x:Null}" Foreground="Black"
                 Grid.Column="7" Grid.ColumnSpan="1"
                 Grid.Row="0" Grid.RowSpan="1"
-                Width="100" Height="50" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"  BorderThickness="0">Профиль</Button>
+                Width="100" Height="50" HorizontalAlignment="Right" VerticalContentAlignment="Bottom"  BorderThickness="0" Click="profileBTN_Click">Профиль</Button>
 
         <Button x:Name="raspisBTN" Background="{x:Null}" Foreground="Black"
                 Grid.Column="6" Grid.ColumnSpan="1"
                 Grid.Row="1" Grid.RowSpan="1"
-                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,6,-10,99">Расписание</Button>
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,6,-10,99" Click="raspisBTN_Click">Расписание</Button>
 
-        <Button x:Name="sotrudnikiBTN" Background="{x:Null}" Foreground="Black"
+        <Button x:Name="animalsBTN" Background="{x:Null}" Foreground="Black"
                 Grid.Column="6" Grid.ColumnSpan="1"
                 Grid.Row="1" Grid.RowSpan="2"
-                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,106,-10,153">Вольеры</Button>
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,106,-10,153" Click="animalsBTN_Click">Вольеры</Button>
 
-        <Button x:Name="animalBTN" Background="{x:Null}" Foreground="Black"
+        <Button x:Name="backBTN" Background="{x:Null}" Foreground="Black"
                 Grid.Column="6" Grid.ColumnSpan="1"
                 Grid.Row="2"
-                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,42,-13,62" RenderTransformOrigin="0.475,0.726">Выход</Button>
+                Width="120" Height="50" HorizontalAlignment="Right" BorderThickness="0"  Margin="0,42,-13,62" RenderTransformOrigin="0.475,0.726" Click="backBTN_Click">Выход</Button>
 
         <TextBlock Text="Вольеры"
             Grid.Column="2" Grid.ColumnSpan="3"

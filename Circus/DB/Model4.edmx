@@ -84,7 +84,7 @@
           <Property Name="Date" Type="date" />
           <Property Name="Time" Type="datetime" />
           <Property Name="Hour" Type="int" />
-          <Property Name="Name_Status" Type="int" />
+          <Property Name="Name_Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -378,7 +378,7 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Time" Type="DateTime" Precision="3" />
           <Property Name="Hour" Type="Int32" />
-          <Property Name="Name_Status" Type="Int32" />
+          <Property Name="Name_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cell" Relationship="Self.FK_Schedule_Trainer_Cell" FromRole="Schedule_Trainer" ToRole="Cell" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Schedule_Trainer_Workers" FromRole="Schedule_Trainer" ToRole="Workers" />
         </EntityType>
@@ -533,7 +533,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CircusEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CircusEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Application" EntityType="Self.Application" />
           <EntitySet Name="Cell" EntityType="Self.Cell" />
@@ -591,7 +591,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities3">
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="CircusModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
