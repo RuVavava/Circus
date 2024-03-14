@@ -24,7 +24,7 @@ namespace Circus.DB
         public string Name_Animal { get; set; }
         public Nullable<int> Age_Animal { get; set; }
         public Nullable<int> ID_Gender { get; set; }
-        public Nullable<int> Weight { get; set; }
+        public string View_Animal { get; set; }
         public string Food { get; set; }
         public string Care { get; set; }
     

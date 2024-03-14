@@ -50,6 +50,7 @@ namespace Circus.Pages.Admin
                 {
                     cell.Name_Animal = nameAnimalTB.Text.Trim();
                     cell.Age_Animal = Convert.ToInt16(ageAnimalTB.Text.Trim());
+                    cell.View_Animal = viewAnimalTB.Text.Trim();
                     cell.Care = careTB.Text.Trim();
                     cell.Food = foodTB.Text.Trim();
                     var b = genderTB.SelectedItem as Gender;
@@ -68,7 +69,7 @@ namespace Circus.Pages.Admin
 
         private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Pages.Admin.AdminAnimalsPage());
         }
     }
 }

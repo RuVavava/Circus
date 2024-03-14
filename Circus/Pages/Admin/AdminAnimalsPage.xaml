@@ -173,7 +173,7 @@
 
 
 
-                        <GridViewColumn Header="Возраст" Width="220">
+                        <GridViewColumn Header="Возраст" Width="170">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Age_Animal}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
@@ -181,7 +181,15 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Пол" Width="150">
+                        <GridViewColumn Header="Вид" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding View_Animal}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Пол" Width="130">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Gender.Name_Gender}" TextWrapping="Wrap" Margin="0, 0, 10, 10"/>

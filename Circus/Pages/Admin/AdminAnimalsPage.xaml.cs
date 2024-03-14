@@ -92,10 +92,10 @@ namespace Circus.Pages.Admin
 
         private void editAnimlBTN_Click(object sender, RoutedEventArgs e)
         {
-            if (animalsLV.SelectedItem is Cell cells)
+            if (animalsLV.SelectedItem is Cell cel_animal)
             {
                 animalsLV.SelectedItem = null;
-                NavigationService.Navigate(new Pages.Admin.AdminEditAnimalPage());
+                NavigationService.Navigate(new Pages.Admin.AdminEditAnimalPage(cel_animal));
                 Refresh();
             }
         }

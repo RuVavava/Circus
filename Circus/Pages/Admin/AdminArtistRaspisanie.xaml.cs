@@ -56,6 +56,7 @@ namespace Circus.Pages.Admin
                     sc.ID_Event = b.ID_Event;
 
                     sc.Date = dateeventTB.SelectedDate;
+                    sc.Date = timeeventTB.SelectedTime;
                     sc.Hour = Convert.ToInt16(houreventTB.Text.Trim());
 
                     DBConnection.circus.Schedule_Artist.Add(sc);

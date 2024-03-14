@@ -28,7 +28,7 @@
           <Property Name="Name_Animal" Type="nvarchar" MaxLength="50" />
           <Property Name="Age_Animal" Type="int" />
           <Property Name="ID_Gender" Type="int" />
-          <Property Name="Weight" Type="int" />
+          <Property Name="View_Animal" Type="nvarchar" MaxLength="50" />
           <Property Name="Food" Type="nvarchar(max)" />
           <Property Name="Care" Type="nvarchar(max)" />
         </EntityType>
@@ -70,7 +70,8 @@
           <Property Name="ID_ScheduleArtist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Artist" Type="int" />
           <Property Name="ID_Event" Type="int" />
-          <Property Name="Date" Type="datetime" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="3" />
           <Property Name="Hour" Type="int" />
         </EntityType>
         <EntityType Name="Schedule_Trainer">
@@ -80,7 +81,8 @@
           <Property Name="ID_Schedule_Trainer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Trainer" Type="int" />
           <Property Name="ID_Cell" Type="int" />
-          <Property Name="Date" Type="datetime" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Time" Type="time" Precision="3" />
           <Property Name="Hour" Type="int" />
           <Property Name="Name_Status" Type="int" />
         </EntityType>
@@ -311,7 +313,7 @@
           <Property Name="Name_Animal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Age_Animal" Type="Int32" />
           <Property Name="ID_Gender" Type="Int32" />
-          <Property Name="Weight" Type="Int32" />
+          <Property Name="View_Animal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Food" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Care" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Cell_Gender" FromRole="Cell" ToRole="Gender" />
@@ -360,7 +362,8 @@
           <Property Name="ID_ScheduleArtist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Artist" Type="Int32" />
           <Property Name="ID_Event" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="3" />
           <Property Name="Hour" Type="Int32" />
           <NavigationProperty Name="Event" Relationship="Self.FK_Schedule_Artist_Event" FromRole="Schedule_Artist" ToRole="Event" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Schedule_Artist_Workers" FromRole="Schedule_Artist" ToRole="Workers" />
@@ -372,7 +375,8 @@
           <Property Name="ID_Schedule_Trainer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Trainer" Type="Int32" />
           <Property Name="ID_Cell" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="Time" Precision="3" />
           <Property Name="Hour" Type="Int32" />
           <Property Name="Name_Status" Type="Int32" />
           <NavigationProperty Name="Cell" Relationship="Self.FK_Schedule_Trainer_Cell" FromRole="Schedule_Trainer" ToRole="Cell" />
@@ -529,7 +533,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CircusEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CircusEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Application" EntityType="Self.Application" />
           <EntitySet Name="Cell" EntityType="Self.Cell" />
@@ -587,7 +591,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities1">
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="CircusModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -612,7 +616,7 @@
                 <ScalarProperty Name="Name_Animal" ColumnName="Name_Animal" />
                 <ScalarProperty Name="Age_Animal" ColumnName="Age_Animal" />
                 <ScalarProperty Name="ID_Gender" ColumnName="ID_Gender" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="View_Animal" ColumnName="View_Animal" />
                 <ScalarProperty Name="Food" ColumnName="Food" />
                 <ScalarProperty Name="Care" ColumnName="Care" />
               </MappingFragment>
@@ -660,6 +664,7 @@
                 <ScalarProperty Name="ID_Artist" ColumnName="ID_Artist" />
                 <ScalarProperty Name="ID_Event" ColumnName="ID_Event" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Hour" ColumnName="Hour" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -671,6 +676,7 @@
                 <ScalarProperty Name="ID_Trainer" ColumnName="ID_Trainer" />
                 <ScalarProperty Name="ID_Cell" ColumnName="ID_Cell" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Hour" ColumnName="Hour" />
                 <ScalarProperty Name="Name_Status" ColumnName="Name_Status" />
               </MappingFragment>

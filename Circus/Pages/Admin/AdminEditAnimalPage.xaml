@@ -57,14 +57,25 @@
             Grid.Row="2" VerticalAlignment="Center"  BorderBrush="Black"
             FontSize="40"/>
 
+        <TextBlock Text="Вид:"
+            Grid.Column="4" Grid.ColumnSpan="2"
+            Grid.Row="1"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <TextBox x:Name="viewAnimalTB"
+            Grid.Column="5" Grid.ColumnSpan="2"
+            Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  BorderBrush="Black"
+            FontSize="40" Width="500"/>
+
         <TextBlock Text="Пол:"
             Grid.Column="4" Grid.ColumnSpan="1"
-            Grid.Row="1"
+            Grid.Row="2"
             HorizontalAlignment="Right" VerticalAlignment="Center" Margin="100, 0, 0, 0"
             FontSize="40" FontWeight="Medium"/>
         <ComboBox x:Name="genderTB"
             Grid.Column="5" Grid.ColumnSpan="1"
-            Grid.Row="1" Width="250" VerticalAlignment="Center" HorizontalAlignment="Center"
+            Grid.Row="2" Width="250" VerticalAlignment="Center" HorizontalAlignment="Center"
             FontSize="40" FontWeight="Medium"        
                   ItemsSource="{Binding genders}">
             <ComboBox.ItemTemplate>
@@ -101,7 +112,7 @@
             Grid.Row="6" Grid.RowSpan="1"
             HorizontalAlignment="Center"  VerticalAlignment="Center"
             Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
-            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E">
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="savenewAEmplBTN_Click">
         </Button>
 
         <Button Content="Отмена" x:Name="deliteAEmplBTN"
@@ -109,7 +120,7 @@
             Grid.Row="6" Grid.RowSpan="1"
             HorizontalAlignment="Center"  VerticalAlignment="Center"
             Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
-            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C">
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C" Click="deliteAEmplBTN_Click">
         </Button>
     </Grid>
 </Page>

@@ -18,6 +18,7 @@ namespace Circus.DB
         public Nullable<int> ID_Artist { get; set; }
         public Nullable<int> ID_Event { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<System.TimeSpan> Time { get; set; }
         public Nullable<int> Hour { get; set; }
     
         public virtual Event Event { get; set; }
