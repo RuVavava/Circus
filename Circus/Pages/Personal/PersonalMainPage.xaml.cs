@@ -56,11 +56,11 @@ namespace Circus.Pages.Personal
             Exercise exercise = exx;
 
             if (nameStatusCB.SelectedIndex == 0)
-                exx.Name_Status = "Не выполнено";
+                exx.Name_Status = "В работе";
             else if (nameStatusCB.SelectedIndex == 1)
-                exx.Name_Status = "В процессе";
-            else if (nameStatusCB.SelectedIndex == 2)
                 exx.Name_Status = "Выполнено";
+            else if (nameStatusCB.SelectedIndex == 2)
+                exx.Name_Status = "Отложено";
             exx.Comment = nameCommentTB.Text;
             DBConnection.circus.SaveChanges();
             Refresh();

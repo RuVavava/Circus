@@ -55,7 +55,7 @@ namespace Circus.Pages.Trainer
 
                     sc_t.Time = (timetrTB.SelectedTime.Value);
                     sc_t.Hour = Convert.ToInt16(hourtrTB.Text.Trim());
-                    sc_t.Name_Status = "Не выполнено";
+                    sc_t.Name_Status = "Новое";
 
                     DBConnection.circus.Schedule_Trainer.Add(sc_t);
                     DBConnection.circus.SaveChanges();

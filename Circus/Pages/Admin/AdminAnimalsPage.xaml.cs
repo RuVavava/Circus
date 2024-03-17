@@ -99,5 +99,10 @@ namespace Circus.Pages.Admin
                 Refresh();
             }
         }
+
+        private void trainerworkBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminTrainerWorkPage());
+        }
     }
 }

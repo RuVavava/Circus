@@ -129,9 +129,9 @@
             Width="300" Height="50" FontSize="35"
             HorizontalAlignment="Left"             
             Text="{Binding exx.Name_Status}">
-            <TextBlock>Не выполнено</TextBlock>
-            <TextBlock>В процессе</TextBlock>
+            <TextBlock>В работе</TextBlock>
             <TextBlock>Выполнено</TextBlock>
+            <TextBlock>Отложено</TextBlock>
         </ComboBox>
 
         <Border Width="650" Height="350" CornerRadius="30"

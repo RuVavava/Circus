@@ -71,11 +71,6 @@ namespace Circus.Pages.Admin
             NavigationService.Navigate(new Pages.Admin.AdminArtistPage());
         }
 
-        private void obspersBTN_Click(object sender, RoutedEventArgs e) //Персонал обсл
-        {
-            NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());  
-        }
-
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (SearchTB.Text.Length > 0)
@@ -117,6 +112,11 @@ namespace Circus.Pages.Admin
                 NavigationService.Navigate(new Pages.Admin.AdminEditEmplPage(worker)); 
                 Refresh();
             }
+        }
+
+        private void obspersBTN_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());
         }
     }
 }

@@ -182,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Admin\AdminTrainerWorkPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +241,9 @@
     </Compile>
     <Compile Include="Pages\Admin\AdminObslPersPage.xaml.cs">
       <DependentUpon>AdminObslPersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AdminTrainerWorkPage.xaml.cs">
+      <DependentUpon>AdminTrainerWorkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>

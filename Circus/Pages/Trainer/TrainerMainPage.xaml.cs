@@ -81,22 +81,10 @@ namespace Circus.Pages.Trainer
             Schedule_Trainer schedule_Trainer = st;
 
             if (nameStatusCB.SelectedIndex == 0)
-                st.Name_Status = "Не выполнено";
+                st.Name_Status = "В работе";
             else if (nameStatusCB.SelectedIndex == 1)
-                st.Name_Status = "В процессе";
-            else if (nameStatusCB.SelectedIndex == 2)
                 st.Name_Status = "Выполнено";
             DBConnection.circus.SaveChanges();
-            OutPutInfo();
-        }
-
-        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
-        {
-            if (raspisanieLV.SelectedItem is Schedule_Trainer schedule_Trainer)
-            {
-                DBConnection.circus.Schedule_Trainer.Remove(schedule_Trainer);
-                DBConnection.circus.SaveChanges();
-            }
             OutPutInfo();
         }
 

@@ -154,20 +154,11 @@
         </ListView>
 
         <Button Content="Добавить" x:Name="newAEmplBTN"
-            Grid.Column="5"  Grid.ColumnSpan="2"
+            Grid.Column="5"  Grid.ColumnSpan="1"
             Grid.Row="6" Grid.RowSpan="1"
             HorizontalAlignment="Center"  VerticalAlignment="Center"
             Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
             Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="newAEmplBTN_Click">
-        </Button>
-
-
-        <Button Content="Удалить" x:Name="deliteAEmplBTN"
-            Grid.Column="4"  Grid.ColumnSpan="1"
-            Grid.Row="6" Grid.RowSpan="1"
-            HorizontalAlignment="Center"  VerticalAlignment="Center"
-            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
-            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C" Click="deliteAEmplBTN_Click">
         </Button>
 
         <TextBlock Text="Тренировка:"
@@ -221,8 +212,7 @@
             Width="350" Height="50" FontSize="35"
             HorizontalAlignment="Left" VerticalAlignment="Bottom"          
             Text="{Binding st.Name_Status}">
-            <TextBlock>Не выполнено</TextBlock>
-            <TextBlock>В процессе</TextBlock>
+            <TextBlock>В работе</TextBlock>
             <TextBlock>Выполнено</TextBlock>
         </ComboBox>
 

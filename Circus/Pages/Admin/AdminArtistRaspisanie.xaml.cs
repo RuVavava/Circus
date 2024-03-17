@@ -70,5 +70,10 @@ namespace Circus.Pages.Admin
                 MessageBox.Show("Заполните все поля!");
             }
         }
+
+        private void deliteAEmplBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminArtistPage());
+        }
     }
 }
