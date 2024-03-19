@@ -25,6 +25,7 @@ namespace Circus.Pages.Admin
         public static List<Workers> obspers { get; set; }
         public static List<Exercise> exercise { get; set; }
         Workers conte_obs;
+        Exercise conte_exercise;
         public AdminObslPersPage()
         {
             InitializeComponent();
@@ -79,6 +80,31 @@ namespace Circus.Pages.Admin
 
                 this.DataContext = this;
 
+            }
+        }
+
+        private void newZadanBTN_Click(object sender, RoutedEventArgs e) //Новое
+        {
+            NavigationService.Navigate(new Pages.Admin.AdminAddZadanieObsPersPage());
+        }
+
+        private void deliteZadanBTN_Click(object sender, RoutedEventArgs e) //Удалить
+        {
+            if (zadachhLV.SelectedItem is Exercise exc)
+            {
+                DBConnection.circus.Exercise.Remove(exc);
+                DBConnection.circus.SaveChanges();
+            }
+            NavigationService.Navigate(new Pages.Admin.AdminObslPersPage());
+        }
+
+        private void editZadanBTN_Click(object sender, RoutedEventArgs e) //Редактировать
+        {
+
+            if (zadachhLV.SelectedItem is Exercise exercise)
+            {
+                zadachhLV.SelectedItem = null;
+                NavigationService.Navigate(new Pages.Admin.AdminEddZadanieObsPersonalPage(exercise));
             }
         }
     }

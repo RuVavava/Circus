@@ -19,6 +19,7 @@
           <Property Name="ID_Artiat" Type="int" />
           <Property Name="Date_Application" Type="date" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StatusApplication" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Cell">
           <Key>
@@ -303,6 +304,7 @@
           <Property Name="ID_Artiat" Type="Int32" />
           <Property Name="Date_Application" Type="DateTime" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusApplication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Application_Workers" FromRole="Application" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Cell">
@@ -533,7 +535,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CircusEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CircusEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Application" EntityType="Self.Application" />
           <EntitySet Name="Cell" EntityType="Self.Cell" />
@@ -591,7 +593,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CircusModelContainer" CdmEntityContainer="CircusEntities4">
           <EntitySetMapping Name="Admin">
             <EntityTypeMapping TypeName="CircusModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -606,6 +608,7 @@
                 <ScalarProperty Name="ID_Artiat" ColumnName="ID_Artiat" />
                 <ScalarProperty Name="Date_Application" ColumnName="Date_Application" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StatusApplication" ColumnName="StatusApplication" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

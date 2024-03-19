@@ -1,0 +1,91 @@
+﻿<Page x:Class="Circus.Pages.Admin.AdminAddZadanieObsPersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Circus.Pages.Admin"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontFamily="Courier New"
+      Title="AdminAddZadanieObsPersPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <!-->НАДПИСЬ ВХОД В ЛИЧНЫЙ КАБИНЕТ<-->
+        <TextBlock Text="Новая задача"
+            Grid.Column="2" Grid.ColumnSpan="3"
+            Grid.Row="0"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            FontSize="60" FontWeight="Medium"/>
+
+        <TextBlock Text="Сотрудник:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <ComboBox x:Name="obspersCB"
+            Grid.Column="1" Grid.ColumnSpan="3"
+            Grid.Row="2" Width="700"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium" ItemsSource="{Binding obspersonal}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Surname}"/>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Patronymic}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Text="Описание:"
+            Grid.Column="0" Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+        <TextBox x:Name="obspersdescrTB"
+            Grid.Column="1" Grid.ColumnSpan="5"
+            Grid.Row="3" Grid.RowSpan="3"
+            Width="1200" Height="400"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100, 0, 0, 0"
+            FontSize="40" FontWeight="Medium"/>
+
+        <Button Content="Сохранить" x:Name="savezadanieobspersBTN"
+            Grid.Column="5"  Grid.ColumnSpan="2"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#FF52ED0E" Click="savezadanieobspersBTN_Click">
+        </Button>
+
+        <Button Content="Отмена" x:Name="backBTN"
+            Grid.Column="4"  Grid.ColumnSpan="1"
+            Grid.Row="6" Grid.RowSpan="1"
+            HorizontalAlignment="Center"  VerticalAlignment="Center"
+            Width="270" Height="70" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="35"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Background="#DC143C" Click="backBTN_Click">
+        </Button>
+
+
+    </Grid>
+</Page>

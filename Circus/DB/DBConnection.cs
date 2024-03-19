@@ -8,7 +8,7 @@ namespace Circus.DB
 {
     internal class DBConnection
     {
-        public static CircusEntities3 circus = new CircusEntities3(); //Строка подключения БД
+        public static CircusEntities4 circus = new CircusEntities4(); //Строка подключения БД
         public static Workers loginedWorker; //Строка вошедшего пользователя
 
         //LAPTOP-NE0LG8CN\SQLEXPRESS

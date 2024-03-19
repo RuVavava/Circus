@@ -26,10 +26,7 @@ namespace Circus.Pages.Admin
         public AdminTrainerWorkPage()
         {
             InitializeComponent();
-            trainers = DB.DBConnection.circus.Workers.Where(i => i.ID_Role == 2).ToList();
-            raspisanie = new List<Schedule_Trainer>(DBConnection.circus.Schedule_Trainer.ToList());
-            raspisanieLV.ItemsSource = raspisanie;
-            this.DataContext = this;
+            Refresh();
 
         }
 
@@ -42,6 +39,25 @@ namespace Circus.Pages.Admin
         {
             var a = treinerCB.SelectedItem as Workers;
             raspisanieLV.ItemsSource = new List<Schedule_Trainer>(DBConnection.circus.Schedule_Trainer.Where(x => x.ID_Trainer == a.ID_Worker).ToList());
+            this.DataContext = this;
+        }
+
+        private void deliteTrenirovkaBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (raspisanieLV.SelectedItem is Schedule_Trainer sc)
+            {
+                DBConnection.circus.Schedule_Trainer.Remove(sc);
+                DBConnection.circus.SaveChanges();
+            }
+            Refresh();
+            NavigationService.Navigate(new AdminTrainerWorkPage());
+        }
+
+        private void Refresh()
+        {
+            trainers = DB.DBConnection.circus.Workers.Where(i => i.ID_Role == 2).ToList();
+            raspisanie = new List<Schedule_Trainer>(DBConnection.circus.Schedule_Trainer.ToList());
+            raspisanieLV.ItemsSource = raspisanie;
             this.DataContext = this;
         }
     }

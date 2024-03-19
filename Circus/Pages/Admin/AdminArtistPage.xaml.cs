@@ -135,5 +135,13 @@ namespace Circus.Pages.Admin
         {
             NavigationService.Navigate(new Pages.Admin.AdminArtistRaspisanie());
         }
+
+        private void editstatusArtistlBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (artistAplLV.SelectedItem is DB.Application pl)
+            {
+                NavigationService.Navigate(new Admin.AdminAddZadaniePage(pl));
+            }
+        }
     }
 }
