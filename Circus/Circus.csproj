@@ -198,6 +198,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Artist\ArtistApplicationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Artist\ArtistRaspisaniePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Artist\ArtistVSEAplicationssPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,6 +277,15 @@
     </Compile>
     <Compile Include="Pages\Admin\AdminTrainerWorkPage.xaml.cs">
       <DependentUpon>AdminTrainerWorkPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Artist\ArtistApplicationPage.xaml.cs">
+      <DependentUpon>ArtistApplicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Artist\ArtistRaspisaniePage.xaml.cs">
+      <DependentUpon>ArtistRaspisaniePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Artist\ArtistVSEAplicationssPage.xaml.cs">
+      <DependentUpon>ArtistVSEAplicationssPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>

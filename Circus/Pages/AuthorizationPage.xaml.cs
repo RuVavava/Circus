@@ -42,7 +42,7 @@ namespace Circus.Pages
                 if (curret_worker != null && curret_worker.Role.Name_Role == "Администратор")
                     NavigationService.Navigate(new Pages.Admin.AdminMainPage());
                 else if (curret_worker != null && curret_worker.Role.Name_Role == "Артист")
-                    MessageBox.Show("АКТЕР!");
+                    NavigationService.Navigate(new Pages.Artist.ArtistRaspisaniePage());
                 else if (curret_worker != null && curret_worker.Role.Name_Role == "Дрессировщик")
                     NavigationService.Navigate(new Pages.Trainer.TrainerMainPage());
                 else if (curret_worker != null && curret_worker.Role.Name_Role == "Обслуживающий персонал")
